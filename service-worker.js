@@ -1,4 +1,4 @@
-const CACHE_NAME = "fare-radar-v2";
+const CACHE_NAME = "fare-radar-v3";
 const APP_FILES = [
   "./",
   "./index.html",
@@ -6,6 +6,9 @@ const APP_FILES = [
   "./app.js",
   "./manifest.webmanifest",
   "./assets/icon.svg",
+  "./assets/icon-180.png",
+  "./assets/icon-192.png",
+  "./assets/icon-512.png",
   "./assets/japan-flight-banner.png"
 ];
 

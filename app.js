@@ -236,7 +236,6 @@ function renderAll() {
     renderAirlineFilterTabs();
     renderRecommendations();
     renderDetail();
-    renderFavorites();
     renderPromos();
   }
 }
@@ -291,49 +290,10 @@ function renderSummary() {
 
   $("#recommendCount").textContent = routes.length;
   $("#airportCount").textContent = destinationCount;
-  $("#favoriteCount").textContent = state.favorites.length;
   $("#currentAirportNote").textContent = `${airport.name}（${airport.code}）`;
   $("#syncStatus").textContent = statusText();
   if ($("#fareRange")) $("#fareRange").textContent = fareRangeText();
   if ($("#recommendBasis")) $("#recommendBasis").textContent = recommendBasisText();
-
-  // Priority 1: 最划算 — 找出「最低價相對目前三個月平均折扣最深」的航線。
-  const monthsLabel = dataMonthsLabel();
-  let bestDeal = null;
-  for (const route of routes) {
-    const s = routeStats(route);
-    if (!s.avg) continue;
-    const discount = (s.avg - route.best.price) / s.avg;
-    if (!bestDeal || discount > bestDeal.discount) bestDeal = { route, discount };
-  }
-  if (bestDeal && bestDeal.discount >= 0.12) {
-    const r = bestDeal.route;
-    const meta = AIRLINES[r.airline];
-    const to = airportName(r.to);
-    $("#mainHeadline").innerHTML =
-      `<span class="headline-zap">⚡ 划算</span> ${meta.short} ${airport.short} → ${to.short}：${formatMoney(r.best.price)}<span class="headline-nowrap">，比${monthsLabel}平均低約 ${Math.round(bestDeal.discount * 100)}%</span>`;
-    return;
-  }
-
-  // Priority 2: active airline promotion (startDate <= today)
-  const today = todayISO();
-  const activePromo = PROMOS.find((p) => normalizeDate(p.startDate) <= today);
-  if (activePromo) {
-    const meta = AIRLINES[activePromo.airline];
-    $("#mainHeadline").innerHTML =
-      `<span class="headline-event">★ 促銷進行中</span> ${meta.name}${activePromo.title.replace(meta.name, "")}正在進行，點「促銷提醒」查看詳情`;
-    return;
-  }
-
-  // Priority 3: best current deal
-  const best = routes[0];
-  if (best) {
-    const meta = AIRLINES[best.airline];
-    const to = airportName(best.to);
-    $("#mainHeadline").textContent = `${meta.short} ${airport.short} → ${to.short}：最低 ${formatMoney(best.best.price)}（${best.best.roundTrip ? "來回" : "單程"}）`;
-  } else {
-    $("#mainHeadline").textContent = `${airport.short}出發目前沒有可顯示的即時票價，請按「同步票價」或換一個出發機場`;
-  }
 }
 
 // ─── recommendations ──────────────────────────────────────────────────────────
@@ -348,7 +308,7 @@ function renderRecommendations() {
     if (mode === "loading") {
       msg = "正在讀取官網即時來回票價，請稍候…";
     } else if (mode === "error") {
-      msg = "暫時無法連線航空公司官網，請按「同步票價」重試。";
+      msg = "暫時無法連線航空公司官網，請稍後重新整理頁面再試。";
     } else {
       msg = `${TAIWAN_AIRPORTS[state.selectedFrom].short}出發目前沒有可顯示的即時票價。可改用上方「智能搜尋」依日期查詢，或換一個出發機場。`;
     }
@@ -378,7 +338,6 @@ function renderRouteCard(route) {
   const stats = routeStats(route);
   const label = dataMonthsLabel();
   const reason = recommendationReason(best, stats);
-  const saved = isFavorite(route.key);
   const meta = AIRLINES[route.airline];
   const nights = tripNights(best);
   const peak = peakSeasonNote(best.departDate);
@@ -398,9 +357,6 @@ function renderRouteCard(route) {
           <p class="route-subtitle">${route.from} → ${route.to} · ${tripLabel} · ${route.offers.length} 個出發日 · ${escapeHTML(best.source)}</p>
         </div>
         <div class="route-actions">
-          <button class="star-button ${saved ? "is-saved" : ""}" type="button" data-action="favorite" data-route-key="${route.key}" aria-label="${saved ? "取消星號" : "加到星號"}">
-            <svg><use href="#icon-star"></use></svg>
-          </button>
           <a class="route-book-link" href="${escapeHTML(best.bookingUrl || airlineHome(route.airline))}" target="_blank" rel="noreferrer">前往官網查票</a>
         </div>
       </div>
@@ -440,7 +396,6 @@ function renderDetail() {
   const stats = routeStats(route);
   const label = dataMonthsLabel();
   const peak = peakSeasonNote(best.departDate);
-  const saved = isFavorite(route.key);
   const reason = recommendationReason(best, stats);
   const nights = tripNights(best);
   // 明細日期清單依「出發日」排序（看得出整月趨勢），最低價那天標記為 is-best。
@@ -453,9 +408,6 @@ function renderDetail() {
         <h2>${from.name} → ${to.name}</h2>
         <span class="route-code">${route.from} → ${route.to}${best.roundTrip ? `（來回${nights ? ` ${nights} 晚` : ""}）` : ""}</span>
       </div>
-      <button class="star-button ${saved ? "is-saved" : ""}" type="button" data-action="favorite" data-route-key="${route.key}" aria-label="${saved ? "取消星號" : "加到星號"}">
-        <svg><use href="#icon-star"></use></svg>
-      </button>
     </div>
 
     <p class="price-disclaimer">⚠️ 以下為夜間自官網查得的${best.roundTrip ? "來回" : ""}票價（每人，TWD），實際可訂價格與艙等行李規則請至官網結帳前再確認。</p>
@@ -492,49 +444,6 @@ function renderDetail() {
   `;
 
   requestAnimationFrame(() => drawPriceChart($("#detailChart"), route));
-}
-
-// ─── favorites ────────────────────────────────────────────────────────────────
-
-function renderFavorites() {
-  const panel = $("#favoritesPanel");
-  const routes = groupRoutes(recommendationsFor(state.selectedFrom))
-    .filter((route) => isFavorite(route.key));
-
-  if (!routes.length) {
-    panel.innerHTML = "";
-    return;
-  }
-
-  panel.innerHTML = `
-    <div class="section-heading">
-      <div>
-        <p class="section-kicker">Saved</p>
-        <h2 id="favoriteTitle">我的星號推薦</h2>
-      </div>
-    </div>
-    <div class="favorites-list">
-      ${routes.map((route) => {
-        const meta = AIRLINES[route.airline];
-        const from = airportName(route.from);
-        const to = airportName(route.to);
-        return `
-          <article class="favorite-card" role="button" tabindex="0" data-route-key="${route.key}" aria-label="${escapeHTML(`查看${from.short}到${to.short}明細`)}">
-            <div class="favorite-main">
-              <div>
-                <span class="airline-badge ${meta.badge}">${meta.short}</span>
-                <h3>${from.short} → ${to.short}</h3>
-              </div>
-              <button class="star-button is-saved" type="button" data-action="favorite" data-route-key="${route.key}" aria-label="取消星號">
-                <svg><use href="#icon-star"></use></svg>
-              </button>
-            </div>
-            <p>${formatDateRange(route.best)} · ${formatMoney(route.best.price)}</p>
-          </article>
-        `;
-      }).join("")}
-    </div>
-  `;
 }
 
 // ─── promos ───────────────────────────────────────────────────────────────────
@@ -1377,17 +1286,11 @@ function attachEvents() {
     renderDetail();
   });
 
-  // Route cards & favorite cards
+  // Route cards
   document.addEventListener("click", (event) => {
-    const favoriteButton = event.target.closest("button[data-action='favorite']");
-    if (favoriteButton) {
-      event.stopPropagation();
-      toggleFavorite(favoriteButton.dataset.routeKey);
-      return;
-    }
     // 讓卡片內的連結（例如「前往官網查票」）正常開啟，不觸發卡片選取/捲動。
     if (event.target.closest("a")) return;
-    const card = event.target.closest(".route-card[data-route-key], .favorite-card[data-route-key]");
+    const card = event.target.closest(".route-card[data-route-key]");
     if (!card) return;
     state.selectedRouteKey = card.dataset.routeKey;
     saveState();
@@ -1397,7 +1300,7 @@ function attachEvents() {
 
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") return;
-    const card = event.target.closest(".route-card[data-route-key], .favorite-card[data-route-key]");
+    const card = event.target.closest(".route-card[data-route-key]");
     if (!card) return;
     event.preventDefault();
     state.selectedRouteKey = card.dataset.routeKey;
@@ -1405,9 +1308,6 @@ function attachEvents() {
     renderAll();
     $("#detailPanel").scrollIntoView({ behavior: "smooth", block: "start" });
   });
-
-  $("#syncButton").addEventListener("click", syncLiveFares);
-  $("#notifyButton").addEventListener("click", requestNotificationPermission);
 
   // Search form
   $("#searchForm").addEventListener("submit", (event) => {
@@ -1486,7 +1386,7 @@ async function loadLiveRecommendations() {
     state.liveStatus = {
       mode: "error",
       updatedAt: new Date().toISOString(),
-      message: "暫時無法連線航空公司官網，請按「同步票價」重試。"
+      message: "暫時無法連線航空公司官網，請稍後重新整理頁面再試。"
     };
     renderAll();
   }

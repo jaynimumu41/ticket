@@ -6,6 +6,10 @@
     <meta name="theme-color" content="#0f766e" />
     <title>日本機票雷達</title>
     <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
+    <link rel="apple-touch-icon" href="assets/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="機票雷達" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -65,22 +69,10 @@
                 <h1>日本機票雷達</h1>
               </div>
             </div>
-            <button class="icon-button" id="notifyButton" type="button" aria-label="開啟通知">
-              <svg><use href="#icon-bell"></use></svg>
-            </button>
           </div>
 
           <div class="hero-bottom">
-            <div>
-              <p class="section-kicker">今日重點</p>
-              <h2 id="mainHeadline">正在整理可考慮購買的日本機票</h2>
-              <p id="fareRange" class="sync-status"></p>
-              <p id="syncStatus" class="sync-status">尚未同步官方公開票價頁</p>
-            </div>
-            <button class="sync-button" id="syncButton" type="button">
-              <svg><use href="#icon-refresh"></use></svg>
-              同步票價
-            </button>
+            <p id="fareRange" class="sync-status"></p>
           </div>
 
           <div class="metric-strip" aria-live="polite">
@@ -91,10 +83,6 @@
             <div>
               <span id="airportCount">0</span>
               <small>日本目的地</small>
-            </div>
-            <div>
-              <span id="favoriteCount">0</span>
-              <small>星號收藏</small>
             </div>
           </div>
         </div>
@@ -115,11 +103,8 @@
 
         <!-- 目前推薦分頁 -->
         <div class="tab-panel" id="panel-recommend">
-          <section class="control-panel" aria-labelledby="departureTitle">
-            <div>
-              <p class="section-kicker">出發機場</p>
-              <h2 id="departureTitle">先選你想從台灣哪個機場出發</h2>
-            </div>
+          <section class="control-panel" aria-label="出發機場">
+            <p class="section-kicker">出發機場</p>
             <div class="departure-tabs" id="departureTabs" role="tablist" aria-label="台灣出發機場"></div>
           </section>
 
@@ -141,8 +126,6 @@
 
             <aside class="detail-panel" id="detailPanel" aria-live="polite"></aside>
           </section>
-
-          <section class="favorites-panel" id="favoritesPanel" aria-labelledby="favoriteTitle"></section>
 
           <section class="promo-panel" aria-labelledby="promoTitle">
             <div class="section-heading">
@@ -263,9 +246,13 @@
           <section class="search-results-panel" id="searchResults" aria-live="polite"></section>
         </div>
       </main>
+
+      <footer class="page-foot">
+        <p id="syncStatus" class="sync-status">尚未同步官方公開票價頁</p>
+      </footer>
     </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=20260601g" defer></script>
+    <script src="app.js?v=20260602a" defer></script>
   </body>
 </html>
