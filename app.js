@@ -228,14 +228,12 @@ function buildHistory({ oneYearAvg, oneYearMin, normalHigh, currentPrice }) {
 // ─── render orchestration ────────────────────────────────────────────────────
 
 function renderAll() {
-  ensureSelectedRoute();
   renderSummary();
   renderMainTabs();
   if (state.activeTab === "recommend") {
     renderDepartureTabs();
     renderAirlineFilterTabs();
     renderRecommendations();
-    renderDetail();
     renderPromos();
   }
 }
@@ -284,9 +282,13 @@ function renderAirlineFilterTabs() {
 
 function renderSummary() {
   const recommendations = recommendationsFor(state.selectedFrom);
-  const routes = groupRoutes(recommendations);
+  // 統計列「可考慮購買 / 日本目的地」要跟著航空篩選一起變動（全部 or 單一航空）。
+  const scoped = state.airlineFilter === "ALL"
+    ? recommendations
+    : recommendations.filter((o) => o.airline === state.airlineFilter);
+  const routes = groupRoutes(scoped);
   const airport = TAIWAN_AIRPORTS[state.selectedFrom];
-  const destinationCount = new Set(recommendations.map((offer) => offer.to)).size;
+  const destinationCount = new Set(scoped.map((offer) => offer.to)).size;
 
   $("#recommendCount").textContent = routes.length;
   $("#airportCount").textContent = destinationCount;
@@ -339,13 +341,11 @@ function renderRouteCard(route) {
   const label = dataMonthsLabel();
   const reason = recommendationReason(best, stats);
   const meta = AIRLINES[route.airline];
-  const nights = tripNights(best);
   const peak = peakSeasonNote(best.departDate);
   // 划算徽章：最低價比「目前三個月平均」低 15% 以上才標示，避免每張卡都掛。
   const isGoodDeal = stats.avg > 0 && best.price <= Math.round(stats.avg * 0.85);
-  const tripLabel = best.roundTrip ? `來回${nights ? ` ${nights} 晚` : ""}` : "單程";
   return `
-    <article class="route-card ${state.selectedRouteKey === route.key ? "is-selected" : ""} ${isGoodDeal ? "is-ultra" : ""}" role="button" tabindex="0" data-route-key="${route.key}" aria-label="${escapeHTML(`${from.short}到${to.short}可考慮購買`)}">
+    <article class="route-card ${isGoodDeal ? "is-ultra" : ""}">
       <div class="route-main">
         <div class="route-title">
           <div class="route-title-top">
@@ -354,7 +354,7 @@ function renderRouteCard(route) {
             ${best.isLive ? '<span class="live-tag">即時</span>' : ""}
           </div>
           <h4>${from.short} → ${to.short}</h4>
-          <p class="route-subtitle">${route.from} → ${route.to} · ${tripLabel} · ${route.offers.length} 個出發日 · ${escapeHTML(best.source)}</p>
+          <p class="route-subtitle">${escapeHTML(best.source)}</p>
         </div>
         <div class="route-actions">
           <a class="route-book-link" href="${escapeHTML(best.bookingUrl || airlineHome(route.airline))}" target="_blank" rel="noreferrer">前往官網查票</a>
@@ -373,77 +373,6 @@ function renderRouteCard(route) {
       ${peak ? `<p class="peak-hint">⚠️ ${peak}，價格可能受旺季因素影響</p>` : ""}
     </article>
   `;
-}
-
-// ─── detail panel ─────────────────────────────────────────────────────────────
-
-function renderDetail() {
-  const panel = $("#detailPanel");
-  const route = selectedRoute();
-  if (!route) {
-    panel.innerHTML = `
-      <div class="empty-state">
-        選一個目的地後，這裡會顯示可考慮購買的日期區間、票價、常態區間、近一年平均與最低票價。
-      </div>
-    `;
-    return;
-  }
-
-  const meta = AIRLINES[route.airline];
-  const from = airportName(route.from);
-  const to = airportName(route.to);
-  const best = route.best;
-  const stats = routeStats(route);
-  const label = dataMonthsLabel();
-  const peak = peakSeasonNote(best.departDate);
-  const reason = recommendationReason(best, stats);
-  const nights = tripNights(best);
-  // 明細日期清單依「出發日」排序（看得出整月趨勢），最低價那天標記為 is-best。
-  const byDate = [...route.offers].sort((a, b) => a.departDate.localeCompare(b.departDate));
-
-  panel.innerHTML = `
-    <div class="detail-top">
-      <div>
-        <span class="airline-badge ${meta.badge}">${meta.name}</span>
-        <h2>${from.name} → ${to.name}</h2>
-        <span class="route-code">${route.from} → ${route.to}${best.roundTrip ? `（來回${nights ? ` ${nights} 晚` : ""}）` : ""}</span>
-      </div>
-    </div>
-
-    <p class="price-disclaimer">⚠️ 以下為夜間自官網查得的${best.roundTrip ? "來回" : ""}票價（每人，TWD），實際可訂價格與艙等行李規則請至官網結帳前再確認。</p>
-    <div class="date-list">
-      ${byDate.map((offer) => `
-        <div class="date-option ${offer.price === stats.min ? "is-best" : ""}">
-          <div>
-            <strong>${formatDateRange(offer)}</strong>
-            <span>${escapeHTML(offer.source)}</span>
-          </div>
-          <strong>${formatMoney(offer.price)}</strong>
-        </div>
-      `).join("")}
-    </div>
-
-    <canvas class="detail-chart" id="detailChart" height="220" aria-label="近期每日票價"></canvas>
-
-    <div class="stat-grid">
-      <div class="stat"><small>${label}最低</small><strong>${formatMoney(stats.min)}</strong></div>
-      <div class="stat"><small>${label}平均</small><strong>${formatMoney(stats.avg)}</strong></div>
-      <div class="stat"><small>${label}最高</small><strong>${formatMoney(stats.max)}</strong></div>
-      <div class="stat"><small>出發日數</small><strong>${route.offers.length} 天</strong></div>
-    </div>
-    ${peak ? `<div class="season-hint"><svg><use href="#icon-calendar"></use></svg> ${peak}，價格可能受旺季因素影響</div>` : ""}
-
-    <p class="judgement-copy">${escapeHTML(reason.long)}</p>
-
-    <div class="source-links">
-      <a href="${escapeHTML(best.bookingUrl)}" target="_blank" rel="noreferrer">
-        <svg><use href="#icon-link"></use></svg>
-        前往官網查票
-      </a>
-    </div>
-  `;
-
-  requestAnimationFrame(() => drawPriceChart($("#detailChart"), route));
 }
 
 // ─── promos ───────────────────────────────────────────────────────────────────
@@ -502,8 +431,8 @@ async function doSearch(formData) {
   const airline = formData.get("airline") || "";
   const from = formData.get("from") || "";
   const to = formData.get("to") || "";
-  const year = formData.get("year") || "";
-  const month = formData.get("month") || "";
+  const depart = formData.get("depart") || "";  // "YYYY-MM"；空＝不限月份
+  const [year, month] = depart ? depart.split("-") : ["", ""];
   const duration = parseInt(formData.get("duration") || "0", 10);
   const passengers = Math.max(1, parseInt(formData.get("passengers") || "1", 10));
 
@@ -579,7 +508,6 @@ async function doSearch(formData) {
     const meta = AIRLINES[o.airline];
     const fromA = airportName(o.from);
     const toA = airportName(o.to);
-    const tripDays = Math.round((new Date(o.returnDate) - new Date(o.departDate)) / 86400000) + 1;
     const isLive = o.isLive === true;
     const priceLabel = o.roundTrip ? "每人來回票價" : "每人票價";
     return `
@@ -590,7 +518,7 @@ async function doSearch(formData) {
           ${isLive ? '<span class="live-tag">即時</span>' : ""}
         </div>
         <div class="search-result-route">${fromA.short} → ${toA.short}</div>
-        <div class="search-result-dates">${formatDateRange(o)} · 共 ${tripDays} 天</div>
+        <div class="search-result-dates">${formatDateRange(o)}</div>
         <div class="search-result-price">
           <div><small>${priceLabel}</small><strong>${formatMoney(o.price)}</strong></div>
           ${passengers > 1 ? `<div><small>${passengers} 人合計</small><strong>${formatMoney(totalPrice)}</strong></div>` : ""}
@@ -640,10 +568,9 @@ async function doSearch(formData) {
       `;
     }).join("");
 
-  const brNote = (!airline || airline === "BR") ? "（長榮目前以歷史區間參考，實際請至官網查詢）" : "";
   const sourceNote = allMatches.length > 0
-    ? `<p class="search-summary-note">✅ 共 ${allMatches.length} 筆符合條件，由低到高排列${liveCount ? `，其中 ${liveCount} 筆為官網即時${allMatches.some((o) => o.roundTrip) ? "來回" : ""}票價` : ""}。${passengers > 1 ? ` 標示 ${passengers} 人合計。` : ""}${brNote ? `<br><small style="opacity:.7">${brNote}</small>` : ""}</p>`
-    : `<p class="search-summary-note">這個條件目前沒有即時票價，下方提供歷史區間參考。${brNote ? `<br><small style="opacity:.7">${brNote}</small>` : ""}</p>`;
+    ? `<p class="search-summary-note">✅ 共 ${allMatches.length} 筆符合條件，由低到高排列${liveCount ? `，其中 ${liveCount} 筆為官網即時${allMatches.some((o) => o.roundTrip) ? "來回" : ""}票價` : ""}。${passengers > 1 ? ` 標示 ${passengers} 人合計。` : ""}</p>`
+    : `<p class="search-summary-note">這個條件目前沒有即時票價，下方提供歷史區間參考。</p>`;
 
   panel.innerHTML = `
     <div class="search-summary">
@@ -1132,34 +1059,25 @@ function liveYearMonths() {
   return [...s].sort();
 }
 
-function rebuildMonthOptions() {
-  const yearSel = $("#s-year"), monthSel = $("#s-month");
-  if (!yearSel || !monthSel) return;
-  const y = yearSel.value;
-  const months = liveYearMonths().filter((ym) => ym.slice(0, 4) === y).map((ym) => ym.slice(5, 7));
-  if (!months.length) return;
-  const prev = monthSel.value;
-  monthSel.innerHTML = ['<option value="">任一月份</option>']
-    .concat(months.map((m) => `<option value="${m}">${+m} 月</option>`)).join("");
-  monthSel.value = months.includes(prev) ? prev : "";
+// 智能搜尋的「出發時間」只列實際有資料的月份（目前 2026/12、2027/01、2027/02），標示為「2026年12月」；
+// 之後夜間資料月份滾動，這裡會自動跟著更新。
+function rebuildDepartOptions() {
+  const sel = $("#s-depart");
+  if (!sel) return;
+  const yms = liveYearMonths();
+  if (!yms.length) return;
+  const label = (ym) => { const [y, m] = ym.split("-"); return `${y}年${+m}月`; };
+  const prev = sel.value;
+  sel.innerHTML = ['<option value="">不限（全部月份）</option>']
+    .concat(yms.map((ym) => `<option value="${ym}">${label(ym)}</option>`)).join("");
+  sel.value = yms.includes(prev) ? prev : "";
 }
 
-function rebuildTimeOptions() {
-  const yearSel = $("#s-year");
-  if (!yearSel) return;
-  const years = [...new Set(liveYearMonths().map((ym) => ym.slice(0, 4)))];
-  if (!years.length) return;
-  const prev = yearSel.value;
-  yearSel.innerHTML = years.map((y) => `<option value="${y}">${y} 年</option>`).join("");
-  yearSel.value = years.includes(prev) ? prev : years[0];
-  rebuildMonthOptions();
-}
-
-// 航空改變 → 重建出發地與目的地；出發地改變 → 重建目的地；同時依資料限定年/月。
+// 航空改變 → 重建出發地與目的地；出發地改變 → 重建目的地；出發時間依實際資料月份。
 function refreshSearchFields() {
   rebuildOriginOptions();
   rebuildDestOptions();
-  rebuildTimeOptions();
+  rebuildDepartOptions();
 }
 
 function airlineHome(code) {
@@ -1282,31 +1200,8 @@ function attachEvents() {
     state.airlineFilter = btn.dataset.airline;
     saveState();
     renderAirlineFilterTabs();
+    renderSummary();         // 統計列「可考慮購買 / 日本目的地」跟著切換的航空更新
     renderRecommendations();
-    renderDetail();
-  });
-
-  // Route cards
-  document.addEventListener("click", (event) => {
-    // 讓卡片內的連結（例如「前往官網查票」）正常開啟，不觸發卡片選取/捲動。
-    if (event.target.closest("a")) return;
-    const card = event.target.closest(".route-card[data-route-key]");
-    if (!card) return;
-    state.selectedRouteKey = card.dataset.routeKey;
-    saveState();
-    renderAll();
-    $("#detailPanel").scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    const card = event.target.closest(".route-card[data-route-key]");
-    if (!card) return;
-    event.preventDefault();
-    state.selectedRouteKey = card.dataset.routeKey;
-    saveState();
-    renderAll();
-    $("#detailPanel").scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   // Search form
@@ -1324,15 +1219,7 @@ function attachEvents() {
   if ($("#s-from")) {
     $("#s-from").addEventListener("change", rebuildDestOptions);
   }
-  if ($("#s-year")) {
-    $("#s-year").addEventListener("change", rebuildMonthOptions);
-  }
   refreshSearchFields();
-
-  window.addEventListener("resize", () => {
-    const route = selectedRoute();
-    if (route) requestAnimationFrame(() => drawPriceChart($("#detailChart"), route));
-  });
 }
 
 async function registerServiceWorker() {

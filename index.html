@@ -65,7 +65,6 @@
             <div class="brand">
               <span class="brand-mark"><svg><use href="#icon-plane"></use></svg></span>
               <div>
-                <p class="eyebrow">Japan fare radar</p>
                 <h1>日本機票雷達</h1>
               </div>
             </div>
@@ -73,17 +72,6 @@
 
           <div class="hero-bottom">
             <p id="fareRange" class="sync-status"></p>
-          </div>
-
-          <div class="metric-strip" aria-live="polite">
-            <div>
-              <span id="recommendCount">0</span>
-              <small>可考慮購買</small>
-            </div>
-            <div>
-              <span id="airportCount">0</span>
-              <small>日本目的地</small>
-            </div>
           </div>
         </div>
       </header>
@@ -111,11 +99,21 @@
           <!-- 航空公司篩選 -->
           <div class="airline-filter-bar" id="airlineFilterBar" role="tablist" aria-label="航空公司篩選"></div>
 
+          <div class="metric-strip" aria-live="polite">
+            <div>
+              <span id="recommendCount">0</span>
+              <small>可考慮購買</small>
+            </div>
+            <div>
+              <span id="airportCount">0</span>
+              <small>日本目的地</small>
+            </div>
+          </div>
+
           <section class="recommend-layout">
             <div class="recommend-column">
               <div class="section-heading">
                 <div>
-                  <p class="section-kicker">Buy signals</p>
                   <h2>目前推薦</h2>
                 </div>
                 <span class="tiny-note" id="currentAirportNote"></span>
@@ -123,14 +121,11 @@
               <p class="recommend-basis" id="recommendBasis"></p>
               <div class="airline-groups" id="airlineGroups" aria-live="polite"></div>
             </div>
-
-            <aside class="detail-panel" id="detailPanel" aria-live="polite"></aside>
           </section>
 
           <section class="promo-panel" aria-labelledby="promoTitle">
             <div class="section-heading">
               <div>
-                <p class="section-kicker">Promotions</p>
                 <h2 id="promoTitle">促銷提醒</h2>
               </div>
             </div>
@@ -143,11 +138,9 @@
           <section class="search-panel" aria-labelledby="searchTitle">
             <div class="section-heading">
               <div>
-                <p class="section-kicker">Smart search</p>
                 <h2 id="searchTitle">智能搜尋</h2>
               </div>
             </div>
-            <p class="search-intro">選好條件，自動分析該月份哪些日期的機票划算、哪些偏貴，讓你知道現在該不該買。</p>
             <form class="search-form" id="searchForm" novalidate>
               <div class="search-fields">
                 <div class="field-group">
@@ -186,28 +179,9 @@
                   </select>
                 </div>
                 <div class="field-group">
-                  <label for="s-year">年份</label>
-                  <select id="s-year" name="year">
-                    <option value="2026" selected>2026 年</option>
-                    <option value="2027">2027 年</option>
-                  </select>
-                </div>
-                <div class="field-group">
-                  <label for="s-month">出發月份</label>
-                  <select id="s-month" name="month">
-                    <option value="">任一月份</option>
-                    <option value="01">1 月</option>
-                    <option value="02">2 月</option>
-                    <option value="03">3 月</option>
-                    <option value="04">4 月</option>
-                    <option value="05">5 月</option>
-                    <option value="06">6 月</option>
-                    <option value="07">7 月</option>
-                    <option value="08">8 月</option>
-                    <option value="09">9 月</option>
-                    <option value="10">10 月</option>
-                    <option value="11">11 月</option>
-                    <option value="12">12 月</option>
+                  <label for="s-depart">出發時間</label>
+                  <select id="s-depart" name="depart">
+                    <!-- 由 app.js 依實際資料月份填入：2026年12月 / 2027年1月 / 2027年2月 -->
                   </select>
                 </div>
                 <div class="field-group">
@@ -253,6 +227,6 @@
     </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=20260602a" defer></script>
+    <script src="app.js?v=20260602b" defer></script>
   </body>
 </html>
