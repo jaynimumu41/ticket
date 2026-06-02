@@ -1,0 +1,18 @@
+{
+  "name": "日本機票雷達",
+  "short_name": "機票雷達",
+  "description": "依台灣出發機場整理中華航空、星宇航空與長榮航空的日本低點票價推薦。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f7f1",
+  "theme_color": "#0f766e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

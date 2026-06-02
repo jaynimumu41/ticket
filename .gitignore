@@ -1,0 +1,27 @@
+# ── 機密 / 大型：絕對不可進公開 repo ──
+# 整個 scraper/ 都不上傳：內含
+#   profile/（headed 瀏覽器設定檔，~312MB，含登入 cookie）
+#   netlify_secret.json（Netlify 憑證）
+#   logs/、debug/（夜間記錄與除錯截圖）
+#   爬蟲程式本身（避免公開抓取手法被航空公司針對）
+# GitHub Pages 只需要靜態網站 + data/live-fares.json。
+scraper/
+
+# 部署暫存資料夾（建立於專案外的兄弟目錄，這裡保險再列一次）
+*-deploy/
+
+# Python 快取
+__pycache__/
+*.pyc
+*.pyo
+
+# 探測 / 暫存截圖（根目錄）
+_*.png
+
+# 本機編輯器 / agent 設定（不公開）
+.claude/
+
+# 系統雜檔
+.DS_Store
+Thumbs.db
+desktop.ini
