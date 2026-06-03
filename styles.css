@@ -1097,6 +1097,12 @@ a:focus-visible {
   line-height: 1.5;
 }
 
+.last-updated {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin: 6px 0 2px;
+}
+
 .date-more {
   font-size: 0.8rem;
   color: var(--text-muted);

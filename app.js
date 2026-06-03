@@ -1,6 +1,7 @@
+// v5: 長榮(BR)改純 API、納入即時來回價(9 航線)，每筆 offer 帶 lastUpdated（最後更新時間）。
 // v4: 移除內建假資料、改純即時起價、修正抓價對應錯誤。版本升級可清掉舊裝置上殘留的
-// 假價／錯誤即時快取，強制重新從官網擷取。
-const STORAGE_KEY = "japanFareRadarState:v4";
+// 假價／錯誤即時快取（含「長榮僅歷史」舊狀態），強制重新從官網擷取。
+const STORAGE_KEY = "japanFareRadarState:v5";
 
 const AIRLINE_ORDER = ["CI", "JX", "BR"];
 const AIRLINES = {
@@ -83,8 +84,8 @@ const ROUTE_BASELINES = {
 
 // 目前推薦改為「純即時」：資料一律來自航空公司官網即時擷取（liveCache），不再放任何
 // 內建假資料。先前的內建示例價是憑空填的，會與官網對不上、破壞可信度，故全部移除。
-// 長榮（BR）官網封鎖自動查詢（HTTP 403），因此不會出現在即時推薦，只在智能搜尋以歷史
-// 基準呈現並標明原因。
+// 長榮（BR）2026-06 起改用官網低價日曆 API（純 HTTP），已納入即時來回價（9 條日本線），
+// 與華航/星宇一視同仁；下方歷史基準僅用於「即時資料尚未涵蓋」的航線月份對照。
 const SEED_OFFERS = [];
 
 const PROMOS = [
@@ -193,6 +194,7 @@ function normalizeOffer(offer) {
     sourceUrl: offer.sourceUrl || offer.bookingUrl || "",
     bookingUrl: offer.bookingUrl || offer.sourceUrl || airlineHome(airline),
     seenAt: normalizeDate(offer.seenAt) || todayISO(),
+    lastUpdated: offer.lastUpdated || null,   // 該筆票價最後一次自官網更新的時間（ISO，含時區）
     isLive: offer.isLive === true,
     roundTrip: offer.roundTrip === true,
     // 即時擷取的真實票價不編造歷史走勢（避免假資料）；趨勢改用「近期真實逐日價」呈現。
@@ -354,7 +356,7 @@ function renderRouteCard(route) {
             ${best.isLive ? '<span class="live-tag">即時</span>' : ""}
           </div>
           <h4>${from.short} → ${to.short}</h4>
-          <p class="route-subtitle">${escapeHTML(best.source)}</p>
+          <p class="route-subtitle">${escapeHTML(best.source)}${best.isLive && best.lastUpdated ? ` · 🕒 ${escapeHTML(formatLastUpdated(best.lastUpdated))}` : ""}</p>
         </div>
         <div class="route-actions">
           <a class="route-book-link" href="${escapeHTML(best.bookingUrl || airlineHome(route.airline))}" target="_blank" rel="noreferrer">前往官網查票</a>
@@ -524,6 +526,7 @@ async function doSearch(formData) {
           ${passengers > 1 ? `<div><small>${passengers} 人合計</small><strong>${formatMoney(totalPrice)}</strong></div>` : ""}
         </div>
         <div class="search-result-analysis">${escapeHTML(verdict.advice)}</div>
+        ${isLive && o.lastUpdated ? `<p class="last-updated">🕒 ${escapeHTML(formatLastUpdated(o.lastUpdated))}</p>` : ""}
         ${isLive ? '<p class="price-disclaimer">⚠️ 此為夜間自官網查得的真實票價，實際可訂價格與規則請至官網結帳前再確認。</p>' : ""}
         <a class="secondary-button" href="${escapeHTML(o.bookingUrl || airlineHome(o.airline))}" target="_blank" rel="noreferrer">
           <svg><use href="#icon-link"></use></svg>
@@ -542,11 +545,9 @@ async function doSearch(formData) {
       const meta = AIRLINES[bAirline];
       const fromA = airportName(bFrom);
       const toA = airportName(bTo);
-      const isBR = bAirline === "BR";
       // 不再用季節係數「預估」尚未到來的月份（會誤導）。直接顯示過去一年的常態區間供對照。
-      const datesLine = isBR
-        ? "長榮尚未納入即時更新，僅供歷史區間參考"
-        : "官網未查到此月份票價，以下為近一年歷史區間供參考";
+      // （長榮已納入即時抓取，這裡只在「即時資料尚未涵蓋此航線月份」時顯示，與其他航空一致。）
+      const datesLine = "官網未查到此月份票價，以下為近一年歷史區間供參考";
       return `
         <article class="search-result-card is-baseline">
           <div class="search-result-top">
@@ -1146,6 +1147,23 @@ function fareRangeText() {
   }
   const fmt = (iso) => { const [y, m, d] = iso.split("-"); return `${y}/${+m}/${+d}`; };
   return `目前更新票價區間 ${fmt(min)}–${fmt(max)}`;
+}
+
+// 「最後更新」：今天更新→顯示時間（今天 HH:MM 更新）；昨天→「昨天更新」；更早→「M/D 更新」。
+// value 為 ISO 字串：純 API 抓到的含時區時間（今天會顯示時間）；既有資料回填則為純日期。
+function formatLastUpdated(value) {
+  if (!value) return "";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return "";
+  const hasTime = /T\d{2}:\d{2}/.test(String(value));
+  const pad = (n) => String(n).padStart(2, "0");
+  const dayKey = (x) => `${x.getFullYear()}-${pad(x.getMonth() + 1)}-${pad(x.getDate())}`;
+  const now = new Date();
+  const yest = new Date(now); yest.setDate(now.getDate() - 1);
+  const vk = dayKey(d);
+  if (vk === dayKey(now)) return hasTime ? `今天 ${pad(d.getHours())}:${pad(d.getMinutes())} 更新` : "今天更新";
+  if (vk === dayKey(yest)) return "昨天更新";
+  return `${d.getMonth() + 1}/${d.getDate()} 更新`;
 }
 
 function formatDateTime(value) {
