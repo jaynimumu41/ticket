@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T12:16:58+0800",
+  "generatedAt": "2026-06-05T16:05:05+0800",
   "currency": "TWD",
   "tripNights": 7,
   "offers": [
@@ -12038,6 +12038,126 @@
       "isLive": true,
       "source": "官網即時來回價",
       "lastUpdated": "2026-06-05T12:14:29+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-15",
+      "returnDate": "2027-02-22",
+      "price": 14317,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-16",
+      "returnDate": "2027-02-23",
+      "price": 14317,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-17",
+      "returnDate": "2027-02-24",
+      "price": 14317,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-18",
+      "returnDate": "2027-02-25",
+      "price": 14316,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-19",
+      "returnDate": "2027-02-26",
+      "price": 14316,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-20",
+      "returnDate": "2027-02-27",
+      "price": 14316,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-21",
+      "returnDate": "2027-02-28",
+      "price": 15613,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-22",
+      "returnDate": "2027-03-01",
+      "price": 16612,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-23",
+      "returnDate": "2027-03-02",
+      "price": 14941,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-24",
+      "returnDate": "2027-03-03",
+      "price": 14941,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T16:05:05+0800"
     },
     {
       "airline": "CI",
