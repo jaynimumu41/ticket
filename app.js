@@ -32,7 +32,8 @@ const JAPAN_AIRPORTS = {
   TAK: { code: "TAK", short: "高松", name: "高松機場" },
   HKD: { code: "HKD", short: "函館", name: "函館機場" },
   KMQ: { code: "KMQ", short: "小松", name: "小松機場" },
-  AOJ: { code: "AOJ", short: "青森", name: "青森機場" }
+  AOJ: { code: "AOJ", short: "青森", name: "青森機場" },
+  KOJ: { code: "KOJ", short: "鹿兒島", name: "鹿兒島機場" }
 };
 
 const ROUTE_BASELINES = {
