@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T03:20:25+0800",
+  "generatedAt": "2026-06-05T08:31:26+0800",
   "currency": "TWD",
   "tripNights": 7,
   "offers": [
@@ -17858,6 +17858,90 @@
       "isLive": true,
       "source": "官網即時來回價",
       "lastUpdated": "2026-06-05T03:07:24+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TSA",
+      "to": "HND",
+      "departDate": "2027-02-01",
+      "returnDate": "2027-02-08",
+      "price": 28253,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T08:31:26+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TSA",
+      "to": "HND",
+      "departDate": "2027-02-02",
+      "returnDate": "2027-02-09",
+      "price": 35274,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T08:31:26+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TSA",
+      "to": "HND",
+      "departDate": "2027-02-03",
+      "returnDate": "2027-02-10",
+      "price": 42473,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T08:31:26+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TSA",
+      "to": "HND",
+      "departDate": "2027-02-04",
+      "returnDate": "2027-02-11",
+      "price": 42722,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T08:31:26+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TSA",
+      "to": "HND",
+      "departDate": "2027-02-05",
+      "returnDate": "2027-02-12",
+      "price": 41122,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T08:31:26+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TSA",
+      "to": "HND",
+      "departDate": "2027-02-06",
+      "returnDate": "2027-02-13",
+      "price": 37581,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T08:31:26+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TSA",
+      "to": "HND",
+      "departDate": "2027-02-07",
+      "returnDate": "2027-02-14",
+      "price": 34234,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-05T08:31:26+0800"
     },
     {
       "airline": "CI",
