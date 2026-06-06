@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-06T03:10:22+0800",
+  "generatedAt": "2026-06-06T16:42:12+0800",
   "currency": "TWD",
   "tripNights": 7,
   "offers": [
@@ -11229,11 +11229,11 @@
       "to": "FUK",
       "departDate": "2026-12-01",
       "returnDate": "2026-12-08",
-      "price": 15613,
+      "price": 15618,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11241,11 +11241,11 @@
       "to": "FUK",
       "departDate": "2026-12-02",
       "returnDate": "2026-12-09",
-      "price": 16237,
+      "price": 16242,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11253,11 +11253,11 @@
       "to": "FUK",
       "departDate": "2026-12-03",
       "returnDate": "2026-12-10",
-      "price": 15565,
+      "price": 15570,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11265,11 +11265,11 @@
       "to": "FUK",
       "departDate": "2026-12-04",
       "returnDate": "2026-12-11",
-      "price": 16237,
+      "price": 16242,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11277,11 +11277,11 @@
       "to": "FUK",
       "departDate": "2026-12-05",
       "returnDate": "2026-12-12",
-      "price": 19637,
+      "price": 17298,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11289,11 +11289,11 @@
       "to": "FUK",
       "departDate": "2026-12-06",
       "returnDate": "2026-12-13",
-      "price": 16909,
+      "price": 19642,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11301,11 +11301,11 @@
       "to": "FUK",
       "departDate": "2026-12-07",
       "returnDate": "2026-12-14",
-      "price": 15565,
+      "price": 15570,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11397,11 +11397,11 @@
       "to": "FUK",
       "departDate": "2026-12-15",
       "returnDate": "2026-12-22",
-      "price": 15613,
+      "price": 15618,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11409,11 +11409,11 @@
       "to": "FUK",
       "departDate": "2026-12-16",
       "returnDate": "2026-12-23",
-      "price": 15565,
+      "price": 15570,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11421,11 +11421,11 @@
       "to": "FUK",
       "departDate": "2026-12-17",
       "returnDate": "2026-12-24",
-      "price": 16237,
+      "price": 16242,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11433,11 +11433,11 @@
       "to": "FUK",
       "departDate": "2026-12-18",
       "returnDate": "2026-12-25",
-      "price": 17005,
+      "price": 17010,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11445,11 +11445,11 @@
       "to": "FUK",
       "departDate": "2026-12-19",
       "returnDate": "2026-12-26",
-      "price": 19253,
+      "price": 19258,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11457,11 +11457,11 @@
       "to": "FUK",
       "departDate": "2026-12-20",
       "returnDate": "2026-12-27",
-      "price": 21658,
+      "price": 21664,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11469,11 +11469,11 @@
       "to": "FUK",
       "departDate": "2026-12-21",
       "returnDate": "2026-12-28",
-      "price": 19162,
+      "price": 19168,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T11:56:04+0800"
+      "lastUpdated": "2026-06-06T16:18:21+0800"
     },
     {
       "airline": "CI",
@@ -11541,11 +11541,11 @@
       "to": "FUK",
       "departDate": "2027-01-01",
       "returnDate": "2027-01-08",
-      "price": 16381,
+      "price": 16386,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11553,11 +11553,11 @@
       "to": "FUK",
       "departDate": "2027-01-02",
       "returnDate": "2027-01-09",
-      "price": 16621,
+      "price": 15330,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11565,11 +11565,11 @@
       "to": "FUK",
       "departDate": "2027-01-03",
       "returnDate": "2027-01-10",
-      "price": 14701,
+      "price": 14706,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11577,11 +11577,11 @@
       "to": "FUK",
       "departDate": "2027-01-04",
       "returnDate": "2027-01-11",
-      "price": 15565,
+      "price": 15570,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11589,11 +11589,11 @@
       "to": "FUK",
       "departDate": "2027-01-05",
       "returnDate": "2027-01-12",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11601,11 +11601,11 @@
       "to": "FUK",
       "departDate": "2027-01-06",
       "returnDate": "2027-01-13",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11613,11 +11613,11 @@
       "to": "FUK",
       "departDate": "2027-01-07",
       "returnDate": "2027-01-14",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11625,11 +11625,11 @@
       "to": "FUK",
       "departDate": "2027-01-08",
       "returnDate": "2027-01-15",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11637,11 +11637,11 @@
       "to": "FUK",
       "departDate": "2027-01-09",
       "returnDate": "2027-01-16",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11649,11 +11649,11 @@
       "to": "FUK",
       "departDate": "2027-01-10",
       "returnDate": "2027-01-17",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11661,11 +11661,11 @@
       "to": "FUK",
       "departDate": "2027-01-11",
       "returnDate": "2027-01-18",
-      "price": 14701,
+      "price": 14706,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11673,11 +11673,11 @@
       "to": "FUK",
       "departDate": "2027-01-12",
       "returnDate": "2027-01-19",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11685,11 +11685,11 @@
       "to": "FUK",
       "departDate": "2027-01-13",
       "returnDate": "2027-01-20",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11697,11 +11697,11 @@
       "to": "FUK",
       "departDate": "2027-01-14",
       "returnDate": "2027-01-21",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11709,11 +11709,11 @@
       "to": "FUK",
       "departDate": "2027-01-15",
       "returnDate": "2027-01-22",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11721,11 +11721,11 @@
       "to": "FUK",
       "departDate": "2027-01-16",
       "returnDate": "2027-01-23",
-      "price": 15565,
+      "price": 15570,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11733,11 +11733,11 @@
       "to": "FUK",
       "departDate": "2027-01-17",
       "returnDate": "2027-01-24",
-      "price": 16237,
+      "price": 16242,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11745,11 +11745,11 @@
       "to": "FUK",
       "departDate": "2027-01-18",
       "returnDate": "2027-01-25",
-      "price": 14941,
+      "price": 14946,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11757,11 +11757,11 @@
       "to": "FUK",
       "departDate": "2027-01-19",
       "returnDate": "2027-01-26",
-      "price": 16381,
+      "price": 16386,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11769,11 +11769,11 @@
       "to": "FUK",
       "departDate": "2027-01-20",
       "returnDate": "2027-01-27",
-      "price": 16237,
+      "price": 16242,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11781,11 +11781,11 @@
       "to": "FUK",
       "departDate": "2027-01-21",
       "returnDate": "2027-01-28",
-      "price": 15949,
+      "price": 15954,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11793,11 +11793,11 @@
       "to": "FUK",
       "departDate": "2027-01-22",
       "returnDate": "2027-01-29",
-      "price": 16909,
+      "price": 16914,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11805,11 +11805,11 @@
       "to": "FUK",
       "departDate": "2027-01-23",
       "returnDate": "2027-01-30",
-      "price": 16621,
+      "price": 16626,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11817,11 +11817,11 @@
       "to": "FUK",
       "departDate": "2027-01-24",
       "returnDate": "2027-01-31",
-      "price": 17677,
+      "price": 17682,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11829,11 +11829,11 @@
       "to": "FUK",
       "departDate": "2027-01-25",
       "returnDate": "2027-02-01",
-      "price": 17677,
+      "price": 17682,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11841,11 +11841,11 @@
       "to": "FUK",
       "departDate": "2027-01-26",
       "returnDate": "2027-02-02",
-      "price": 16909,
+      "price": 16914,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T12:01:59+0800"
+      "lastUpdated": "2026-06-06T16:21:43+0800"
     },
     {
       "airline": "CI",
@@ -11935,13 +11935,97 @@
       "airline": "CI",
       "from": "TPE",
       "to": "FUK",
-      "departDate": "2027-02-15",
-      "returnDate": "2027-02-22",
-      "price": 14317,
+      "departDate": "2027-02-08",
+      "returnDate": "2027-02-15",
+      "price": 26738,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-09",
+      "returnDate": "2027-02-16",
+      "price": 19642,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:25:14+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-10",
+      "returnDate": "2027-02-17",
+      "price": 14946,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:25:14+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-11",
+      "returnDate": "2027-02-18",
+      "price": 14946,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:25:14+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-12",
+      "returnDate": "2027-02-19",
+      "price": 14322,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:25:14+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-13",
+      "returnDate": "2027-02-20",
+      "price": 14322,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:25:14+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-14",
+      "returnDate": "2027-02-21",
+      "price": 14946,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:25:14+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "FUK",
+      "departDate": "2027-02-15",
+      "returnDate": "2027-02-22",
+      "price": 14322,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -11949,11 +12033,11 @@
       "to": "FUK",
       "departDate": "2027-02-16",
       "returnDate": "2027-02-23",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -11961,11 +12045,11 @@
       "to": "FUK",
       "departDate": "2027-02-17",
       "returnDate": "2027-02-24",
-      "price": 14317,
+      "price": 14322,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -11973,11 +12057,11 @@
       "to": "FUK",
       "departDate": "2027-02-18",
       "returnDate": "2027-02-25",
-      "price": 14316,
+      "price": 14321,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -11985,11 +12069,11 @@
       "to": "FUK",
       "departDate": "2027-02-19",
       "returnDate": "2027-02-26",
-      "price": 14316,
+      "price": 14321,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -11997,11 +12081,11 @@
       "to": "FUK",
       "departDate": "2027-02-20",
       "returnDate": "2027-02-27",
-      "price": 14316,
+      "price": 14321,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -12009,11 +12093,11 @@
       "to": "FUK",
       "departDate": "2027-02-21",
       "returnDate": "2027-02-28",
-      "price": 15613,
+      "price": 15618,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -12021,11 +12105,11 @@
       "to": "FUK",
       "departDate": "2027-02-22",
       "returnDate": "2027-03-01",
-      "price": 16612,
+      "price": 16617,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -12033,11 +12117,11 @@
       "to": "FUK",
       "departDate": "2027-02-23",
       "returnDate": "2027-03-02",
-      "price": 14941,
+      "price": 14946,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -12045,11 +12129,11 @@
       "to": "FUK",
       "departDate": "2027-02-24",
       "returnDate": "2027-03-03",
-      "price": 14941,
+      "price": 14946,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-05T16:05:05+0800"
+      "lastUpdated": "2026-06-06T16:25:14+0800"
     },
     {
       "airline": "CI",
@@ -13581,11 +13665,11 @@
       "to": "KMJ",
       "departDate": "2026-12-01",
       "returnDate": "2026-12-08",
-      "price": 14001,
+      "price": 14006,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13593,11 +13677,11 @@
       "to": "KMJ",
       "departDate": "2026-12-02",
       "returnDate": "2026-12-09",
-      "price": 25790,
+      "price": 25795,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13605,11 +13689,11 @@
       "to": "KMJ",
       "departDate": "2026-12-03",
       "returnDate": "2026-12-10",
-      "price": 18165,
+      "price": 18170,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13617,11 +13701,11 @@
       "to": "KMJ",
       "departDate": "2026-12-04",
       "returnDate": "2026-12-11",
-      "price": 14529,
+      "price": 14534,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13629,11 +13713,11 @@
       "to": "KMJ",
       "departDate": "2026-12-05",
       "returnDate": "2026-12-12",
-      "price": 25790,
+      "price": 25795,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13641,11 +13725,11 @@
       "to": "KMJ",
       "departDate": "2026-12-06",
       "returnDate": "2026-12-13",
-      "price": 14769,
+      "price": 14774,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13653,11 +13737,11 @@
       "to": "KMJ",
       "departDate": "2026-12-07",
       "returnDate": "2026-12-14",
-      "price": 14001,
+      "price": 14006,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13665,11 +13749,11 @@
       "to": "KMJ",
       "departDate": "2026-12-08",
       "returnDate": "2026-12-15",
-      "price": 14001,
+      "price": 14006,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13677,11 +13761,11 @@
       "to": "KMJ",
       "departDate": "2026-12-09",
       "returnDate": "2026-12-16",
-      "price": 25790,
+      "price": 25795,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13689,11 +13773,11 @@
       "to": "KMJ",
       "departDate": "2026-12-10",
       "returnDate": "2026-12-17",
-      "price": 14769,
+      "price": 15302,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13701,11 +13785,11 @@
       "to": "KMJ",
       "departDate": "2026-12-11",
       "returnDate": "2026-12-18",
-      "price": 14529,
+      "price": 14534,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13713,11 +13797,11 @@
       "to": "KMJ",
       "departDate": "2026-12-12",
       "returnDate": "2026-12-19",
-      "price": 25790,
+      "price": 25795,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13725,11 +13809,11 @@
       "to": "KMJ",
       "departDate": "2026-12-13",
       "returnDate": "2026-12-20",
-      "price": 14001,
+      "price": 14006,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13737,11 +13821,11 @@
       "to": "KMJ",
       "departDate": "2026-12-14",
       "returnDate": "2026-12-21",
-      "price": 14769,
+      "price": 14774,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13749,11 +13833,11 @@
       "to": "KMJ",
       "departDate": "2026-12-15",
       "returnDate": "2026-12-22",
-      "price": 14001,
+      "price": 14006,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13761,11 +13845,11 @@
       "to": "KMJ",
       "departDate": "2026-12-16",
       "returnDate": "2026-12-23",
-      "price": 25790,
+      "price": 25795,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13773,11 +13857,11 @@
       "to": "KMJ",
       "departDate": "2026-12-17",
       "returnDate": "2026-12-24",
-      "price": 15921,
+      "price": 15926,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13785,11 +13869,11 @@
       "to": "KMJ",
       "departDate": "2026-12-18",
       "returnDate": "2026-12-25",
-      "price": 16689,
+      "price": 16694,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13797,11 +13881,11 @@
       "to": "KMJ",
       "departDate": "2026-12-19",
       "returnDate": "2026-12-26",
-      "price": 35266,
+      "price": 35271,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13809,11 +13893,11 @@
       "to": "KMJ",
       "departDate": "2026-12-20",
       "returnDate": "2026-12-27",
-      "price": 19000,
+      "price": 19005,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13821,11 +13905,11 @@
       "to": "KMJ",
       "departDate": "2026-12-21",
       "returnDate": "2026-12-28",
-      "price": 17613,
+      "price": 17618,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13833,11 +13917,11 @@
       "to": "KMJ",
       "departDate": "2026-12-22",
       "returnDate": "2026-12-29",
-      "price": 14926,
+      "price": 14931,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13845,11 +13929,11 @@
       "to": "KMJ",
       "departDate": "2026-12-23",
       "returnDate": "2026-12-30",
-      "price": 38273,
+      "price": 38278,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13857,11 +13941,11 @@
       "to": "KMJ",
       "departDate": "2026-12-24",
       "returnDate": "2026-12-31",
-      "price": 17613,
+      "price": 17618,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13869,11 +13953,11 @@
       "to": "KMJ",
       "departDate": "2026-12-25",
       "returnDate": "2027-01-01",
-      "price": 18141,
+      "price": 18146,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13881,11 +13965,11 @@
       "to": "KMJ",
       "departDate": "2026-12-26",
       "returnDate": "2027-01-02",
-      "price": 51888,
+      "price": 51893,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:17:24+0800"
+      "lastUpdated": "2026-06-06T16:07:48+0800"
     },
     {
       "airline": "CI",
@@ -13893,11 +13977,11 @@
       "to": "KMJ",
       "departDate": "2027-01-01",
       "returnDate": "2027-01-08",
-      "price": 14769,
+      "price": 14774,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -13905,11 +13989,11 @@
       "to": "KMJ",
       "departDate": "2027-01-02",
       "returnDate": "2027-01-09",
-      "price": 27186,
+      "price": 27191,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -13917,11 +14001,11 @@
       "to": "KMJ",
       "departDate": "2027-01-03",
       "returnDate": "2027-01-10",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -13929,11 +14013,11 @@
       "to": "KMJ",
       "departDate": "2027-01-04",
       "returnDate": "2027-01-11",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -13941,11 +14025,11 @@
       "to": "KMJ",
       "departDate": "2027-01-05",
       "returnDate": "2027-01-12",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -13953,11 +14037,11 @@
       "to": "KMJ",
       "departDate": "2027-01-06",
       "returnDate": "2027-01-13",
-      "price": 24652,
+      "price": 24657,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -13965,11 +14049,11 @@
       "to": "KMJ",
       "departDate": "2027-01-07",
       "returnDate": "2027-01-14",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -13977,11 +14061,11 @@
       "to": "KMJ",
       "departDate": "2027-01-08",
       "returnDate": "2027-01-15",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -13989,11 +14073,11 @@
       "to": "KMJ",
       "departDate": "2027-01-09",
       "returnDate": "2027-01-16",
-      "price": 24652,
+      "price": 24657,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14001,11 +14085,11 @@
       "to": "KMJ",
       "departDate": "2027-01-10",
       "returnDate": "2027-01-17",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14013,11 +14097,11 @@
       "to": "KMJ",
       "departDate": "2027-01-11",
       "returnDate": "2027-01-18",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14025,11 +14109,11 @@
       "to": "KMJ",
       "departDate": "2027-01-12",
       "returnDate": "2027-01-19",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14037,11 +14121,11 @@
       "to": "KMJ",
       "departDate": "2027-01-13",
       "returnDate": "2027-01-20",
-      "price": 24652,
+      "price": 24657,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14049,11 +14133,11 @@
       "to": "KMJ",
       "departDate": "2027-01-14",
       "returnDate": "2027-01-21",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14061,11 +14145,11 @@
       "to": "KMJ",
       "departDate": "2027-01-15",
       "returnDate": "2027-01-22",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14073,11 +14157,11 @@
       "to": "KMJ",
       "departDate": "2027-01-16",
       "returnDate": "2027-01-23",
-      "price": 25790,
+      "price": 25795,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14085,11 +14169,11 @@
       "to": "KMJ",
       "departDate": "2027-01-17",
       "returnDate": "2027-01-24",
-      "price": 21113,
+      "price": 14774,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14097,11 +14181,11 @@
       "to": "KMJ",
       "departDate": "2027-01-18",
       "returnDate": "2027-01-25",
-      "price": 14769,
+      "price": 14774,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14109,11 +14193,11 @@
       "to": "KMJ",
       "departDate": "2027-01-19",
       "returnDate": "2027-01-26",
-      "price": 14769,
+      "price": 14774,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14121,11 +14205,11 @@
       "to": "KMJ",
       "departDate": "2027-01-20",
       "returnDate": "2027-01-27",
-      "price": 27270,
+      "price": 27275,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14133,11 +14217,11 @@
       "to": "KMJ",
       "departDate": "2027-01-21",
       "returnDate": "2027-01-28",
-      "price": 18546,
+      "price": 18551,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14145,11 +14229,11 @@
       "to": "KMJ",
       "departDate": "2027-01-22",
       "returnDate": "2027-01-29",
-      "price": 18546,
+      "price": 18551,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14157,11 +14241,11 @@
       "to": "KMJ",
       "departDate": "2027-01-23",
       "returnDate": "2027-01-30",
-      "price": 34402,
+      "price": 37291,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14169,11 +14253,11 @@
       "to": "KMJ",
       "departDate": "2027-01-24",
       "returnDate": "2027-01-31",
-      "price": 18546,
+      "price": 18551,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14181,11 +14265,11 @@
       "to": "KMJ",
       "departDate": "2027-01-25",
       "returnDate": "2027-02-01",
-      "price": 18545,
+      "price": 18550,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14193,11 +14277,11 @@
       "to": "KMJ",
       "departDate": "2027-01-26",
       "returnDate": "2027-02-02",
-      "price": 18545,
+      "price": 18550,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:23:23+0800"
+      "lastUpdated": "2026-06-06T16:11:24+0800"
     },
     {
       "airline": "CI",
@@ -14205,11 +14289,11 @@
       "to": "KMJ",
       "departDate": "2027-02-01",
       "returnDate": "2027-02-08",
-      "price": 31557,
+      "price": 31562,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14217,11 +14301,11 @@
       "to": "KMJ",
       "departDate": "2027-02-02",
       "returnDate": "2027-02-09",
-      "price": 35624,
+      "price": 35629,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14229,11 +14313,11 @@
       "to": "KMJ",
       "departDate": "2027-02-03",
       "returnDate": "2027-02-10",
-      "price": 60566,
+      "price": 60571,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14241,11 +14325,11 @@
       "to": "KMJ",
       "departDate": "2027-02-04",
       "returnDate": "2027-02-11",
-      "price": 39462,
+      "price": 39467,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14253,11 +14337,11 @@
       "to": "KMJ",
       "departDate": "2027-02-05",
       "returnDate": "2027-02-12",
-      "price": 36212,
+      "price": 36217,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14265,11 +14349,11 @@
       "to": "KMJ",
       "departDate": "2027-02-06",
       "returnDate": "2027-02-13",
-      "price": 60914,
+      "price": 60919,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14277,11 +14361,11 @@
       "to": "KMJ",
       "departDate": "2027-02-07",
       "returnDate": "2027-02-14",
-      "price": 33302,
+      "price": 33307,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14289,11 +14373,11 @@
       "to": "KMJ",
       "departDate": "2027-02-08",
       "returnDate": "2027-02-15",
-      "price": 25785,
+      "price": 25790,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14301,11 +14385,11 @@
       "to": "KMJ",
       "departDate": "2027-02-09",
       "returnDate": "2027-02-16",
-      "price": 18845,
+      "price": 18850,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14313,11 +14397,11 @@
       "to": "KMJ",
       "departDate": "2027-02-10",
       "returnDate": "2027-02-17",
-      "price": 33486,
+      "price": 33491,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14325,11 +14409,11 @@
       "to": "KMJ",
       "departDate": "2027-02-11",
       "returnDate": "2027-02-18",
-      "price": 13377,
+      "price": 13382,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14337,11 +14421,11 @@
       "to": "KMJ",
       "departDate": "2027-02-12",
       "returnDate": "2027-02-19",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14349,11 +14433,11 @@
       "to": "KMJ",
       "departDate": "2027-02-13",
       "returnDate": "2027-02-20",
-      "price": 31544,
+      "price": 31549,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14361,11 +14445,11 @@
       "to": "KMJ",
       "departDate": "2027-02-14",
       "returnDate": "2027-02-21",
-      "price": 12849,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14373,11 +14457,11 @@
       "to": "KMJ",
       "departDate": "2027-02-15",
       "returnDate": "2027-02-22",
-      "price": 12848,
+      "price": 12853,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14385,11 +14469,11 @@
       "to": "KMJ",
       "departDate": "2027-02-16",
       "returnDate": "2027-02-23",
-      "price": 12848,
+      "price": 12853,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14397,11 +14481,11 @@
       "to": "KMJ",
       "departDate": "2027-02-17",
       "returnDate": "2027-02-24",
-      "price": 28204,
+      "price": 28209,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14409,11 +14493,11 @@
       "to": "KMJ",
       "departDate": "2027-02-18",
       "returnDate": "2027-02-25",
-      "price": 16625,
+      "price": 23031,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14421,11 +14505,11 @@
       "to": "KMJ",
       "departDate": "2027-02-19",
       "returnDate": "2027-02-26",
-      "price": 12848,
+      "price": 12854,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14433,11 +14517,11 @@
       "to": "KMJ",
       "departDate": "2027-02-20",
       "returnDate": "2027-02-27",
-      "price": 27131,
+      "price": 27137,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -14445,11 +14529,47 @@
       "to": "KMJ",
       "departDate": "2027-02-21",
       "returnDate": "2027-02-28",
-      "price": 14768,
+      "price": 14774,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:28:35+0800"
+      "lastUpdated": "2026-06-06T16:14:43+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "KMJ",
+      "departDate": "2027-02-22",
+      "returnDate": "2027-03-01",
+      "price": 17630,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:14:43+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "KMJ",
+      "departDate": "2027-02-23",
+      "returnDate": "2027-03-02",
+      "price": 13382,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:14:43+0800"
+    },
+    {
+      "airline": "CI",
+      "from": "TPE",
+      "to": "KMJ",
+      "departDate": "2027-02-24",
+      "returnDate": "2027-03-03",
+      "price": 25795,
+      "roundTrip": true,
+      "isLive": true,
+      "source": "官網即時來回價",
+      "lastUpdated": "2026-06-06T16:14:43+0800"
     },
     {
       "airline": "CI",
@@ -15757,7 +15877,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15769,7 +15889,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15781,7 +15901,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15793,7 +15913,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15805,7 +15925,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15817,7 +15937,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15829,7 +15949,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15841,7 +15961,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15853,7 +15973,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15865,7 +15985,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15877,7 +15997,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15889,7 +16009,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15901,7 +16021,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15913,7 +16033,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15925,7 +16045,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15937,7 +16057,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15949,7 +16069,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15961,7 +16081,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15973,7 +16093,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15985,7 +16105,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -15997,7 +16117,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -16009,7 +16129,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -16021,7 +16141,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -16033,7 +16153,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -16045,7 +16165,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -16057,7 +16177,7 @@
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-06T02:10:11+0800"
+      "lastUpdated": "2026-06-06T16:04:24+0800"
     },
     {
       "airline": "CI",
@@ -17577,11 +17697,11 @@
       "to": "TAK",
       "departDate": "2026-12-01",
       "returnDate": "2026-12-08",
-      "price": 15464,
+      "price": 15468,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17589,11 +17709,11 @@
       "to": "TAK",
       "departDate": "2026-12-02",
       "returnDate": "2026-12-09",
-      "price": 16691,
+      "price": 16695,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17601,11 +17721,11 @@
       "to": "TAK",
       "departDate": "2026-12-03",
       "returnDate": "2026-12-10",
-      "price": 15464,
+      "price": 15468,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17613,11 +17733,11 @@
       "to": "TAK",
       "departDate": "2026-12-04",
       "returnDate": "2026-12-11",
-      "price": 15848,
+      "price": 15852,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17625,11 +17745,11 @@
       "to": "TAK",
       "departDate": "2026-12-05",
       "returnDate": "2026-12-12",
-      "price": 17418,
+      "price": 17422,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17637,11 +17757,11 @@
       "to": "TAK",
       "departDate": "2026-12-06",
       "returnDate": "2026-12-13",
-      "price": 15944,
+      "price": 15948,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17649,11 +17769,11 @@
       "to": "TAK",
       "departDate": "2026-12-07",
       "returnDate": "2026-12-14",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17661,11 +17781,11 @@
       "to": "TAK",
       "departDate": "2026-12-08",
       "returnDate": "2026-12-15",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17673,11 +17793,11 @@
       "to": "TAK",
       "departDate": "2026-12-09",
       "returnDate": "2026-12-16",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17685,11 +17805,11 @@
       "to": "TAK",
       "departDate": "2026-12-10",
       "returnDate": "2026-12-17",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17697,11 +17817,11 @@
       "to": "TAK",
       "departDate": "2026-12-11",
       "returnDate": "2026-12-18",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17709,11 +17829,11 @@
       "to": "TAK",
       "departDate": "2026-12-12",
       "returnDate": "2026-12-19",
-      "price": 15944,
+      "price": 15948,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17721,11 +17841,11 @@
       "to": "TAK",
       "departDate": "2026-12-13",
       "returnDate": "2026-12-20",
-      "price": 15464,
+      "price": 15468,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17733,11 +17853,11 @@
       "to": "TAK",
       "departDate": "2026-12-14",
       "returnDate": "2026-12-21",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17745,11 +17865,11 @@
       "to": "TAK",
       "departDate": "2026-12-15",
       "returnDate": "2026-12-22",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17757,11 +17877,11 @@
       "to": "TAK",
       "departDate": "2026-12-16",
       "returnDate": "2026-12-23",
-      "price": 15464,
+      "price": 15468,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17769,11 +17889,11 @@
       "to": "TAK",
       "departDate": "2026-12-17",
       "returnDate": "2026-12-24",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17781,11 +17901,11 @@
       "to": "TAK",
       "departDate": "2026-12-18",
       "returnDate": "2026-12-25",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17793,11 +17913,11 @@
       "to": "TAK",
       "departDate": "2026-12-19",
       "returnDate": "2026-12-26",
-      "price": 16952,
+      "price": 16956,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17805,11 +17925,11 @@
       "to": "TAK",
       "departDate": "2026-12-20",
       "returnDate": "2026-12-27",
-      "price": 18418,
+      "price": 18907,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17817,11 +17937,11 @@
       "to": "TAK",
       "departDate": "2026-12-21",
       "returnDate": "2026-12-28",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17829,11 +17949,11 @@
       "to": "TAK",
       "departDate": "2026-12-22",
       "returnDate": "2026-12-29",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17841,11 +17961,11 @@
       "to": "TAK",
       "departDate": "2026-12-23",
       "returnDate": "2026-12-30",
-      "price": 16328,
+      "price": 16332,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17853,11 +17973,11 @@
       "to": "TAK",
       "departDate": "2026-12-24",
       "returnDate": "2026-12-31",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17865,11 +17985,11 @@
       "to": "TAK",
       "departDate": "2026-12-25",
       "returnDate": "2027-01-01",
-      "price": 15464,
+      "price": 15468,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17877,11 +17997,11 @@
       "to": "TAK",
       "departDate": "2026-12-26",
       "returnDate": "2027-01-02",
-      "price": 15944,
+      "price": 15948,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:35:03+0800"
+      "lastUpdated": "2026-06-06T16:28:41+0800"
     },
     {
       "airline": "CI",
@@ -17889,11 +18009,11 @@
       "to": "TAK",
       "departDate": "2027-01-01",
       "returnDate": "2027-01-08",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -17901,11 +18021,11 @@
       "to": "TAK",
       "departDate": "2027-01-02",
       "returnDate": "2027-01-09",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -17913,11 +18033,11 @@
       "to": "TAK",
       "departDate": "2027-01-03",
       "returnDate": "2027-01-10",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -17925,11 +18045,11 @@
       "to": "TAK",
       "departDate": "2027-01-04",
       "returnDate": "2027-01-11",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -17937,11 +18057,11 @@
       "to": "TAK",
       "departDate": "2027-01-05",
       "returnDate": "2027-01-12",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -17949,11 +18069,11 @@
       "to": "TAK",
       "departDate": "2027-01-06",
       "returnDate": "2027-01-13",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -17961,11 +18081,11 @@
       "to": "TAK",
       "departDate": "2027-01-07",
       "returnDate": "2027-01-14",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -17973,11 +18093,11 @@
       "to": "TAK",
       "departDate": "2027-01-08",
       "returnDate": "2027-01-15",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -17985,11 +18105,11 @@
       "to": "TAK",
       "departDate": "2027-01-09",
       "returnDate": "2027-01-16",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -17997,11 +18117,11 @@
       "to": "TAK",
       "departDate": "2027-01-10",
       "returnDate": "2027-01-17",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18009,11 +18129,11 @@
       "to": "TAK",
       "departDate": "2027-01-11",
       "returnDate": "2027-01-18",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18021,11 +18141,11 @@
       "to": "TAK",
       "departDate": "2027-01-12",
       "returnDate": "2027-01-19",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18033,11 +18153,11 @@
       "to": "TAK",
       "departDate": "2027-01-13",
       "returnDate": "2027-01-20",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18045,11 +18165,11 @@
       "to": "TAK",
       "departDate": "2027-01-14",
       "returnDate": "2027-01-21",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18057,11 +18177,11 @@
       "to": "TAK",
       "departDate": "2027-01-15",
       "returnDate": "2027-01-22",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18069,11 +18189,11 @@
       "to": "TAK",
       "departDate": "2027-01-16",
       "returnDate": "2027-01-23",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18081,11 +18201,11 @@
       "to": "TAK",
       "departDate": "2027-01-17",
       "returnDate": "2027-01-24",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18093,11 +18213,11 @@
       "to": "TAK",
       "departDate": "2027-01-18",
       "returnDate": "2027-01-25",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18105,11 +18225,11 @@
       "to": "TAK",
       "departDate": "2027-01-19",
       "returnDate": "2027-01-26",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18117,11 +18237,11 @@
       "to": "TAK",
       "departDate": "2027-01-20",
       "returnDate": "2027-01-27",
-      "price": 14840,
+      "price": 14844,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
@@ -18129,11 +18249,11 @@
       "to": "TAK",
       "departDate": "2027-01-21",
       "returnDate": "2027-01-28",
-      "price": 14360,
+      "price": 14364,
       "roundTrip": true,
       "isLive": true,
       "source": "官網即時來回價",
-      "lastUpdated": "2026-06-04T14:40:37+0800"
+      "lastUpdated": "2026-06-06T16:34:04+0800"
     },
     {
       "airline": "CI",
