@@ -1250,20 +1250,55 @@ async function registerServiceWorker() {
   }
 }
 
-// 開頁自動載入即時起價。若有 6 小時內的快取就沿用，否則背景擷取。
+// 快取資料超過 30 分鐘就在背景靜默重抓（畫面先顯示舊資料、抓到新的再重繪）。
+// 主因：iOS「加入主畫面」的 App 點開時常是直接喚醒上次畫面、不重新載入頁面，
+// 舊的 6 小時門檻會讓主畫面版長時間卡在舊資料；改為回前景即檢查。
+const LIVE_REFRESH_MS = 30 * 60 * 1000;
+
+function liveCacheAge() {
+  if (!state.liveCache || !state.liveCache.loadedAt) return Infinity;
+  return Date.now() - new Date(state.liveCache.loadedAt).getTime();
+}
+
+let liveRefreshing = false;
+async function silentRefreshLiveFares() {
+  if (liveRefreshing || liveCacheAge() < LIVE_REFRESH_MS) return;
+  liveRefreshing = true;
+  try {
+    const offers = await fetchLiveOffers();
+    if (offers.length) {
+      state.liveCache = { offers, loadedAt: new Date().toISOString() };
+      state.liveStatus = {
+        mode: "live",
+        updatedAt: state.liveCache.loadedAt,
+        message: `已更新 ${offers.length} 筆官網即時來回票價（資料每晚自官網更新）`
+      };
+      saveState();
+      renderAll();
+      refreshSearchFields();
+    }
+  } catch {
+    // 靜默失敗：保留畫面上的舊資料，下次回前景再試。
+  } finally {
+    liveRefreshing = false;
+  }
+}
+
+// 開頁自動載入即時起價。有快取先即刻顯示，過 30 分鐘背景更新。
 async function loadLiveRecommendations() {
   if (state.liveCache && state.liveCache.loadedAt) {
-    const age = Date.now() - new Date(state.liveCache.loadedAt).getTime();
+    const age = liveCacheAge();
     if (age < 6 * 3600 * 1000) {
       if (state.liveStatus && state.liveStatus.mode === "loading") {
         state.liveStatus = {
           mode: "live",
           updatedAt: state.liveCache.loadedAt,
-          message: `官網即時來回票價（${state.liveCache.offers.length} 筆，6 小時內）。資料每晚自官網更新。`
+          message: `官網即時來回票價（${state.liveCache.offers.length} 筆）。資料每晚自官網更新。`
         };
         renderAll();
       }
       refreshSearchFields();
+      silentRefreshLiveFares();  // 超過 30 分鐘就背景換新，不擋畫面
       return;
     }
   }
@@ -1303,6 +1338,13 @@ function init() {
   renderAll();
   registerServiceWorker();
   loadLiveRecommendations();
+  // iOS 主畫面 App 多半以「喚醒」回前景（不重載頁面）→ 靠這兩個事件補抓新資料。
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") silentRefreshLiveFares();
+  });
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) silentRefreshLiveFares();
+  });
 }
 
 document.addEventListener("DOMContentLoaded", init);
