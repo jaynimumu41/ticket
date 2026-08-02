@@ -33,8 +33,15 @@ const JAPAN_AIRPORTS = {
   HKD: { code: "HKD", short: "函館", name: "函館機場" },
   KMQ: { code: "KMQ", short: "小松", name: "小松機場" },
   AOJ: { code: "AOJ", short: "青森", name: "青森機場" },
-  KOJ: { code: "KOJ", short: "鹿兒島", name: "鹿兒島機場" }
+  KOJ: { code: "KOJ", short: "鹿兒島", name: "鹿兒島機場" },
+  TOY: { code: "TOY", short: "富山", name: "富山機場" }
 };
+
+// 已由航空公司官方頁確認、但近期 API 快取可能暫時為 0 筆的航線。
+// 仍固定放進搜尋選單，不能因快取稀疏而讓真實航線消失。
+const SUPPORTED_ROUTES = [
+  { airline: "CI", from: "TPE", to: "TOY" }
+];
 
 const ROUTE_BASELINES = {
   // 華航 CI（無直飛仙台）
@@ -508,7 +515,12 @@ async function doSearch(formData) {
   });
 
   if (!baselineEntries.length && !allMatches.length) {
-    panel.innerHTML = `<div class="search-no-result"><p>沒有找到符合條件的航線資料。目前支援華航、星宇、長榮從桃園、松山、高雄飛日本各城市。</p></div>`;
+    const supported = SUPPORTED_ROUTES.some((r) =>
+      (!airline || r.airline === airline) && (!from || r.from === from) && (!to || r.to === to)
+    );
+    panel.innerHTML = supported
+      ? `<div class="search-no-result"><p>這條官方航線已納入每日自動查價，但授權資料 API 目前沒有符合日期與天數的近期快取。程式會在每天夜間繼續自動查詢。</p></div>`
+      : `<div class="search-no-result"><p>沒有找到符合條件的航線資料。目前支援華航、星宇、長榮從桃園、松山、高雄飛日本各城市。</p></div>`;
     return;
   }
 
@@ -1010,6 +1022,12 @@ function liveRouteIndex() {
   const dests = {};     // airline -> Set(to)
   const odDests = {};   // `${airline}|${from}` -> Set(to)
   currentOffers().forEach((o) => {
+    (origins[o.airline] = origins[o.airline] || new Set()).add(o.from);
+    (dests[o.airline] = dests[o.airline] || new Set()).add(o.to);
+    const k = `${o.airline}|${o.from}`;
+    (odDests[k] = odDests[k] || new Set()).add(o.to);
+  });
+  SUPPORTED_ROUTES.forEach((o) => {
     (origins[o.airline] = origins[o.airline] || new Set()).add(o.from);
     (dests[o.airline] = dests[o.airline] || new Set()).add(o.to);
     const k = `${o.airline}|${o.from}`;
