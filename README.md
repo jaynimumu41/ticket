@@ -26,25 +26,20 @@ http://127.0.0.1:4177/
 ## 自動查價來源
 
 - 星宇、長榮：航空公司公開低價日曆 API。
-- 華航：Travelpayouts / Aviasales Data API 的近期搜尋票價快取。
+- 華航：華航官方公開票價頁的近期搜尋價（官網標示為過去 48 小時內搜尋價）。
 
-華航抓取器不再開啟華航網站、不使用 Playwright，也不呼叫受防機器人保護的華航內部 API，
-因此不會再因排程抓價觸發華航 CAPTCHA 或鎖定家用網路 IP。Data API 是快取資料，並非華航
-結帳畫面的當下庫存；畫面會標示「近 48 小時快取」，訂票前仍應到華航官網確認。
+華航抓取器不開啟會出現「我不是機器人」的訂票頁，而是讀取華航官方公開票價頁供旅客瀏覽的
+每日低價資料，因此不需要用家用 IP 模擬訂票操作，也不需要人工解 CAPTCHA。每條航線逐月抓取，
+保留官網提供的實際去回日期，不限制固定 7 晚。這些資料不是結帳畫面的當下庫存；畫面會標示
+「官網近 48 小時」，訂票前仍應到華航官網確認。
 
-## 華航一次性設定
+## 華航自動更新
 
-1. 免費註冊 [Travelpayouts](https://www.travelpayouts.com/) 並在 Profile → API token 取得 token。
-2. 開啟本機已建立的 `scraper/travelpayouts_secret.json`。
-3. 把 `token` 的空字串換成自己的 token。
-4. 執行設定檢查：
+不需要註冊第三方服務或保存 API token。可用以下指令檢查官方公開票價來源：
 
 ```powershell
-& "$env:LOCALAPPDATA\Python\pythoncore-3.14-64\python.exe" .\scraper\scrape_ci_data_api.py --check-config
+& "$env:LOCALAPPDATA\Python\pythoncore-3.14-64\python.exe" .\scraper\scrape_ci_official_fares.py --check-config
 ```
 
-`travelpayouts_secret.json` 位於整個被 `.gitignore` 排除的 `scraper/` 目錄內，不會被推送到
-公開 GitHub。也可以改用環境變數 `TRAVELPAYOUTS_TOKEN`。
-
-缺少／失效 token 或 API 暫時故障時，程式會保留上次成功資料，並讓 Windows 工作排程回傳
-非 0 錯誤；不會再像舊版一樣顯示成功卻默默沿用華航舊價。
+若官方公開票價服務暫時故障，程式會保留未成功更新月份的上次資料，並讓 Windows 工作排程回傳
+非 0 錯誤；成功更新的航線月份則會直接替換舊的華航資料。

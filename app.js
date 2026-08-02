@@ -1,4 +1,4 @@
-// v6: 華航改授權票價 Data API；支援 live / cached / stale 三種新鮮度，避免把快取誤標為即時。
+// v7: 華航改用官方公開票價頁；支援 live / cached / stale 三種新鮮度，避免把 48 小時搜尋價誤標為即時。
 // v4: 移除內建假資料；版本升級可清掉舊裝置上殘留的假價／錯誤快取。
 const STORAGE_KEY = "japanFareRadarState:v5";
 const DATA_SCHEMA_VERSION = 6;
@@ -37,7 +37,7 @@ const JAPAN_AIRPORTS = {
   TOY: { code: "TOY", short: "富山", name: "富山機場" }
 };
 
-// 已由航空公司官方頁確認、但近期 API 快取可能暫時為 0 筆的航線。
+// 已由航空公司官方頁確認、但近期搜尋價可能暫時為 0 筆的航線。
 // 仍固定放進搜尋選單，不能因快取稀疏而讓真實航線消失。
 const SUPPORTED_ROUTES = [
   { airline: "CI", from: "TPE", to: "TOY" }
@@ -210,7 +210,7 @@ function normalizeOffer(offer) {
     isCached: fareFreshness === "cached",
     fareFreshness,
     roundTrip: offer.roundTrip === true,
-    // 真實觀測值（即時、API 快取或舊觀測）都不編造歷史走勢。
+    // 真實觀測值（即時、官方近期搜尋價或舊觀測）都不編造歷史走勢。
     history: Array.isArray(offer.history) && offer.history.length
       ? offer.history.map(normalizeHistoryPoint)
       : (isObservedFare ? [] : buildHistory({ oneYearAvg, oneYearMin, normalHigh, currentPrice: price }))
@@ -357,7 +357,7 @@ function renderRouteCard(route) {
   const reason = recommendationReason(best, stats);
   const meta = AIRLINES[route.airline];
   const peak = peakSeasonNote(best.departDate);
-  const freshnessTag = best.fareFreshness === "live" ? "即時" : (best.fareFreshness === "cached" ? "近48小時快取" : (best.fareFreshness === "stale" ? "舊資料" : ""));
+  const freshnessTag = best.fareFreshness === "live" ? "即時" : (best.fareFreshness === "cached" ? "官網近48小時" : (best.fareFreshness === "stale" ? "舊資料" : ""));
   const showUpdated = ["live", "cached", "stale"].includes(best.fareFreshness) && best.lastUpdated;
   // 划算徽章：最低價比「目前三個月平均」低 15% 以上才標示，避免每張卡都掛。
   const isGoodDeal = stats.avg > 0 && best.price <= Math.round(stats.avg * 0.85);
@@ -519,7 +519,7 @@ async function doSearch(formData) {
       (!airline || r.airline === airline) && (!from || r.from === from) && (!to || r.to === to)
     );
     panel.innerHTML = supported
-      ? `<div class="search-no-result"><p>這條官方航線已納入每日自動查價，但授權資料 API 目前沒有符合日期與天數的近期快取。程式會在每天夜間繼續自動查詢。</p></div>`
+      ? `<div class="search-no-result"><p>這條官方航線已納入每日自動查價，但官方公開票價頁目前沒有符合日期與天數的近期搜尋價。程式會在每天夜間繼續自動查詢。</p></div>`
       : `<div class="search-no-result"><p>沒有找到符合條件的航線資料。目前支援華航、星宇、長榮從桃園、松山、高雄飛日本各城市。</p></div>`;
     return;
   }
@@ -534,7 +534,7 @@ async function doSearch(formData) {
     const isLive = o.isLive === true;
     const isCached = o.fareFreshness === "cached";
     const isStale = o.fareFreshness === "stale";
-    const freshnessTag = isLive ? "即時" : (isCached ? "近48小時快取" : (isStale ? "舊資料" : ""));
+    const freshnessTag = isLive ? "即時" : (isCached ? "官網近48小時" : (isStale ? "舊資料" : ""));
     const showUpdated = (isLive || isCached || isStale) && o.lastUpdated;
     const priceLabel = o.roundTrip ? "每人來回票價" : "每人票價";
     return `
@@ -553,7 +553,7 @@ async function doSearch(formData) {
         <div class="search-result-analysis">${escapeHTML(verdict.advice)}</div>
         ${showUpdated ? `<p class="last-updated">🕒 ${escapeHTML(formatLastUpdated(o.lastUpdated))}</p>` : ""}
         ${isLive ? '<p class="price-disclaimer">⚠️ 此為夜間自官網取得的票價，實際可訂價格與規則請至官網結帳前再確認。</p>' : ""}
-        ${isCached ? '<p class="price-disclaimer">ℹ️ 此為授權資料 API 的近期搜尋快取，不代表華航當下仍有同價；訂票前請至華航官網確認。</p>' : ""}
+        ${isCached ? '<p class="price-disclaimer">ℹ️ 此為航空公司官方公開票價頁過去 48 小時內的搜尋價，不代表目前仍有同價；訂票前請至官網確認。</p>' : ""}
         ${isStale ? '<p class="price-disclaimer">⚠️ 此筆是切換資料來源前的舊觀測值，只供比較；請以華航官網目前價格為準。</p>' : ""}
         <a class="secondary-button" href="${escapeHTML(o.bookingUrl || airlineHome(o.airline))}" target="_blank" rel="noreferrer">
           <svg><use href="#icon-link"></use></svg>
@@ -597,7 +597,7 @@ async function doSearch(formData) {
     }).join("");
 
   const sourceNote = allMatches.length > 0
-    ? `<p class="search-summary-note">✅ 共 ${allMatches.length} 筆符合條件，由低到高排列${liveCount ? `；${liveCount} 筆官網即時` : ""}${cachedCount ? `；${cachedCount} 筆近 48 小時 API 快取` : ""}${staleCount ? `；${staleCount} 筆舊資料` : ""}。${passengers > 1 ? ` 標示 ${passengers} 人合計。` : ""}</p>`
+    ? `<p class="search-summary-note">✅ 共 ${allMatches.length} 筆符合條件，由低到高排列${liveCount ? `；${liveCount} 筆官網即時` : ""}${cachedCount ? `；${cachedCount} 筆官網近 48 小時搜尋價` : ""}${staleCount ? `；${staleCount} 筆舊資料` : ""}。${passengers > 1 ? ` 標示 ${passengers} 人合計。` : ""}</p>`
     : `<p class="search-summary-note">這個條件目前沒有票價資料，下方提供歷史區間參考。</p>`;
 
   panel.innerHTML = `
