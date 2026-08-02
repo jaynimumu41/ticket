@@ -1,7 +1,7 @@
-// v5: 長榮(BR)改純 API、納入即時來回價(9 航線)，每筆 offer 帶 lastUpdated（最後更新時間）。
-// v4: 移除內建假資料、改純即時起價、修正抓價對應錯誤。版本升級可清掉舊裝置上殘留的
-// 假價／錯誤即時快取（含「長榮僅歷史」舊狀態），強制重新從官網擷取。
+// v6: 華航改授權票價 Data API；支援 live / cached / stale 三種新鮮度，避免把快取誤標為即時。
+// v4: 移除內建假資料；版本升級可清掉舊裝置上殘留的假價／錯誤快取。
 const STORAGE_KEY = "japanFareRadarState:v5";
+const DATA_SCHEMA_VERSION = 6;
 
 const AIRLINE_ORDER = ["CI", "JX", "BR"];
 const AIRLINES = {
@@ -80,13 +80,9 @@ const ROUTE_BASELINES = {
   "BR|KHH|OKA": { normalLow: 10500, normalHigh: 14200, oneYearAvg: 12300, oneYearMin: 10200 },
 };
 
-// 智能搜尋的選單一律由「實際即時票價」驅動（見 liveRouteIndex / refreshSearchFields），
-// 確保航空×出發地×目的地的組合與官網真實航線一致（例：星宇高松只有台中出發）。
+// 智能搜尋的選單一律由「實際票價資料」驅動（見 liveRouteIndex / refreshSearchFields）。
 
-// 目前推薦改為「純即時」：資料一律來自航空公司官網即時擷取（liveCache），不再放任何
-// 內建假資料。先前的內建示例價是憑空填的，會與官網對不上、破壞可信度，故全部移除。
-// 長榮（BR）2026-06 起改用官網低價日曆 API（純 HTTP），已納入即時來回價（9 條日本線），
-// 與華航/星宇一視同仁；下方歷史基準僅用於「即時資料尚未涵蓋」的航線月份對照。
+// 推薦資料全部來自夜間 API 工作（liveCache），不放內建假價；華航快取與舊資料會明確標示。
 const SEED_OFFERS = [];
 
 const PROMOS = [
@@ -129,18 +125,22 @@ function loadState() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return seed;
     const parsed = JSON.parse(raw);
+    const fareCacheIsCurrent = parsed.dataSchemaVersion === DATA_SCHEMA_VERSION;
     return {
       ...seed,
       ...parsed,
+      dataSchemaVersion: DATA_SCHEMA_VERSION,
       selectedFrom: TAIWAN_AIRPORTS[parsed.selectedFrom] ? parsed.selectedFrom : seed.selectedFrom,
       airlineFilter: parsed.airlineFilter || "ALL",
       activeTab: parsed.activeTab || "recommend",
       favorites: Array.isArray(parsed.favorites) ? parsed.favorites : [],
-      offers: Array.isArray(parsed.offers) && parsed.offers.length
+      offers: fareCacheIsCurrent && Array.isArray(parsed.offers) && parsed.offers.length
         ? parsed.offers.map(normalizeOffer)
         : seed.offers,
-      liveStatus: parsed.liveStatus || seed.liveStatus,
-      liveCache: parsed.liveCache || null
+      liveStatus: fareCacheIsCurrent ? (parsed.liveStatus || seed.liveStatus) : seed.liveStatus,
+      liveCache: fareCacheIsCurrent && parsed.liveCache && Array.isArray(parsed.liveCache.offers)
+        ? { ...parsed.liveCache, offers: parsed.liveCache.offers.map(normalizeOffer) }
+        : null
     };
   } catch {
     return seed;
@@ -149,6 +149,7 @@ function loadState() {
 
 function seedState() {
   return {
+    dataSchemaVersion: DATA_SCHEMA_VERSION,
     selectedFrom: "TPE",
     selectedRouteKey: "",
     airlineFilter: "ALL",
@@ -158,7 +159,7 @@ function seedState() {
     liveStatus: {
       mode: "loading",
       updatedAt: "",
-      message: "正在讀取官網即時來回票價…"
+      message: "正在讀取最新票價資料…"
     },
     offers: SEED_OFFERS.map(normalizeOffer),
     liveCache: null  // { offers: [...], loadedAt: "ISO string" }
@@ -179,6 +180,8 @@ function normalizeOffer(offer) {
   const normalHigh = moneyNumber(offer.normalHigh || baseline.normalHigh || Math.round(price * 1.28));
   const oneYearAvg = moneyNumber(offer.oneYearAvg || baseline.oneYearAvg || Math.round((normalLow + normalHigh) / 2));
   const oneYearMin = moneyNumber(offer.oneYearMin || baseline.oneYearMin || Math.min(price, normalLow));
+  const fareFreshness = offer.fareFreshness || (offer.isCached === true ? "cached" : (offer.isLive === true ? "live" : "reference"));
+  const isObservedFare = ["live", "cached", "stale"].includes(fareFreshness);
   return {
     id: offer.id || `${airline}-${from}-${to}-${offer.departDate}-${offer.returnDate}`.toLowerCase(),
     airline,
@@ -195,13 +198,15 @@ function normalizeOffer(offer) {
     sourceUrl: offer.sourceUrl || offer.bookingUrl || "",
     bookingUrl: offer.bookingUrl || offer.sourceUrl || airlineHome(airline),
     seenAt: normalizeDate(offer.seenAt) || todayISO(),
-    lastUpdated: offer.lastUpdated || null,   // 該筆票價最後一次自官網更新的時間（ISO，含時區）
+    lastUpdated: offer.lastUpdated || null,   // 這筆資料最後一次由夜間工作觀測／讀取的時間。
     isLive: offer.isLive === true,
+    isCached: fareFreshness === "cached",
+    fareFreshness,
     roundTrip: offer.roundTrip === true,
-    // 即時擷取的真實票價不編造歷史走勢（避免假資料）；趨勢改用「近期真實逐日價」呈現。
+    // 真實觀測值（即時、API 快取或舊觀測）都不編造歷史走勢。
     history: Array.isArray(offer.history) && offer.history.length
       ? offer.history.map(normalizeHistoryPoint)
-      : (offer.isLive === true ? [] : buildHistory({ oneYearAvg, oneYearMin, normalHigh, currentPrice: price }))
+      : (isObservedFare ? [] : buildHistory({ oneYearAvg, oneYearMin, normalHigh, currentPrice: price }))
   };
 }
 
@@ -311,11 +316,11 @@ function renderRecommendations() {
     const mode = (state.liveStatus && state.liveStatus.mode) || "loading";
     let msg;
     if (mode === "loading") {
-      msg = "正在讀取官網即時來回票價，請稍候…";
+      msg = "正在讀取最新票價資料，請稍候…";
     } else if (mode === "error") {
-      msg = "暫時無法連線航空公司官網，請稍後重新整理頁面再試。";
+      msg = "暫時無法讀取票價資料，畫面會保留上次成功結果。";
     } else {
-      msg = `${TAIWAN_AIRPORTS[state.selectedFrom].short}出發目前沒有可顯示的即時票價。可改用上方「智能搜尋」依日期查詢，或換一個出發機場。`;
+      msg = `${TAIWAN_AIRPORTS[state.selectedFrom].short}出發目前沒有可顯示的票價。可改用上方「智能搜尋」依日期查詢，或換一個出發機場。`;
     }
     container.innerHTML = `<div class="empty-state">${msg}</div>`;
     return;
@@ -345,6 +350,8 @@ function renderRouteCard(route) {
   const reason = recommendationReason(best, stats);
   const meta = AIRLINES[route.airline];
   const peak = peakSeasonNote(best.departDate);
+  const freshnessTag = best.fareFreshness === "live" ? "即時" : (best.fareFreshness === "cached" ? "近48小時快取" : (best.fareFreshness === "stale" ? "舊資料" : ""));
+  const showUpdated = ["live", "cached", "stale"].includes(best.fareFreshness) && best.lastUpdated;
   // 划算徽章：最低價比「目前三個月平均」低 15% 以上才標示，避免每張卡都掛。
   const isGoodDeal = stats.avg > 0 && best.price <= Math.round(stats.avg * 0.85);
   return `
@@ -354,10 +361,10 @@ function renderRouteCard(route) {
           <div class="route-title-top">
             <span class="airline-badge ${meta.badge}">${meta.short}</span>
             ${isGoodDeal ? `<span class="ultra-badge">⚡ ${label}相對低</span>` : ""}
-            ${best.isLive ? '<span class="live-tag">即時</span>' : ""}
+            ${freshnessTag ? `<span class="live-tag">${freshnessTag}</span>` : ""}
           </div>
           <h4>${from.short} → ${to.short}</h4>
-          <p class="route-subtitle">${escapeHTML(best.source)}${best.isLive && best.lastUpdated ? ` · 🕒 ${escapeHTML(formatLastUpdated(best.lastUpdated))}` : ""}</p>
+          <p class="route-subtitle">${escapeHTML(best.source)}${showUpdated ? ` · 🕒 ${escapeHTML(formatLastUpdated(best.lastUpdated))}` : ""}</p>
         </div>
         <div class="route-actions">
           <a class="route-book-link" href="${escapeHTML(best.bookingUrl || airlineHome(route.airline))}" target="_blank" rel="noreferrer">前往官網查票</a>
@@ -454,12 +461,11 @@ async function doSearch(formData) {
   panel.innerHTML = `
     <div class="search-loading">
       <div class="search-loading-spinner"></div>
-      <p>正在向航空公司官網查詢票價，請稍候…</p>
+      <p>正在整理最新票價資料，請稍候…</p>
     </div>
   `;
 
-  // 資料來源：開頁載入的真實票價（liveCache，夜間爬蟲產出）。依搜尋條件在前端篩選，
-  // 不再呼叫伺服器。沒有真實資料的航線，下方仍以「歷史參考」基準卡呈現。
+  // 資料來源：開頁載入的票價（liveCache，夜間 API 工作產出）。依搜尋條件在前端篩選。
   const allMatches = currentOffers().filter((o) => {
     if (airline && o.airline !== airline) return false;
     if (from && o.from !== from) return false;
@@ -488,7 +494,9 @@ async function doSearch(formData) {
     if (!arr.length) return null;
     return { min: arr[0], avg: Math.round(arr.reduce((s, p) => s + p, 0) / arr.length), max: arr[arr.length - 1] };
   };
-  const liveCount = allMatches.filter((o) => o.isLive).length;
+  const liveCount = allMatches.filter((o) => o.fareFreshness === "live").length;
+  const cachedCount = allMatches.filter((o) => o.fareFreshness === "cached").length;
+  const staleCount = allMatches.filter((o) => o.fareFreshness === "stale").length;
 
   // Baseline entries for routes with no live or local data
   const baselineEntries = Object.entries(ROUTE_BASELINES).filter(([key]) => {
@@ -512,13 +520,17 @@ async function doSearch(formData) {
     const fromA = airportName(o.from);
     const toA = airportName(o.to);
     const isLive = o.isLive === true;
+    const isCached = o.fareFreshness === "cached";
+    const isStale = o.fareFreshness === "stale";
+    const freshnessTag = isLive ? "即時" : (isCached ? "近48小時快取" : (isStale ? "舊資料" : ""));
+    const showUpdated = (isLive || isCached || isStale) && o.lastUpdated;
     const priceLabel = o.roundTrip ? "每人來回票價" : "每人票價";
     return `
       <article class="search-result-card">
         <div class="search-result-top">
           <span class="airline-badge ${meta.badge}">${meta.short}</span>
           <span class="verdict-badge verdict-${verdict.level}">${verdict.label}</span>
-          ${isLive ? '<span class="live-tag">即時</span>' : ""}
+          ${freshnessTag ? `<span class="live-tag">${freshnessTag}</span>` : ""}
         </div>
         <div class="search-result-route">${fromA.short} → ${toA.short}</div>
         <div class="search-result-dates">${formatDateRange(o)}</div>
@@ -527,8 +539,10 @@ async function doSearch(formData) {
           ${passengers > 1 ? `<div><small>${passengers} 人合計</small><strong>${formatMoney(totalPrice)}</strong></div>` : ""}
         </div>
         <div class="search-result-analysis">${escapeHTML(verdict.advice)}</div>
-        ${isLive && o.lastUpdated ? `<p class="last-updated">🕒 ${escapeHTML(formatLastUpdated(o.lastUpdated))}</p>` : ""}
-        ${isLive ? '<p class="price-disclaimer">⚠️ 此為夜間自官網查得的真實票價，實際可訂價格與規則請至官網結帳前再確認。</p>' : ""}
+        ${showUpdated ? `<p class="last-updated">🕒 ${escapeHTML(formatLastUpdated(o.lastUpdated))}</p>` : ""}
+        ${isLive ? '<p class="price-disclaimer">⚠️ 此為夜間自官網取得的票價，實際可訂價格與規則請至官網結帳前再確認。</p>' : ""}
+        ${isCached ? '<p class="price-disclaimer">ℹ️ 此為授權資料 API 的近期搜尋快取，不代表華航當下仍有同價；訂票前請至華航官網確認。</p>' : ""}
+        ${isStale ? '<p class="price-disclaimer">⚠️ 此筆是切換資料來源前的舊觀測值，只供比較；請以華航官網目前價格為準。</p>' : ""}
         <a class="secondary-button" href="${escapeHTML(o.bookingUrl || airlineHome(o.airline))}" target="_blank" rel="noreferrer">
           <svg><use href="#icon-link"></use></svg>
           前往官網確認並訂票
@@ -571,8 +585,8 @@ async function doSearch(formData) {
     }).join("");
 
   const sourceNote = allMatches.length > 0
-    ? `<p class="search-summary-note">✅ 共 ${allMatches.length} 筆符合條件，由低到高排列${liveCount ? `，其中 ${liveCount} 筆為官網即時${allMatches.some((o) => o.roundTrip) ? "來回" : ""}票價` : ""}。${passengers > 1 ? ` 標示 ${passengers} 人合計。` : ""}</p>`
-    : `<p class="search-summary-note">這個條件目前沒有即時票價，下方提供歷史區間參考。</p>`;
+    ? `<p class="search-summary-note">✅ 共 ${allMatches.length} 筆符合條件，由低到高排列${liveCount ? `；${liveCount} 筆官網即時` : ""}${cachedCount ? `；${cachedCount} 筆近 48 小時 API 快取` : ""}${staleCount ? `；${staleCount} 筆舊資料` : ""}。${passengers > 1 ? ` 標示 ${passengers} 人合計。` : ""}</p>`
+    : `<p class="search-summary-note">這個條件目前沒有票價資料，下方提供歷史區間參考。</p>`;
 
   panel.innerHTML = `
     <div class="search-summary">
@@ -758,7 +772,7 @@ function recommendationReason(offer, stats) {
 
 // ─── sync ─────────────────────────────────────────────────────────────────────
 
-// 資料來源：夜間爬蟲（scraper/scrape_fares.py）產出的靜態檔 data/live-fares.json。
+// 資料來源：夜間 API 工作產出的靜態檔 data/live-fares.json。
 // 不再依賴 Netlify function；部署時這份 JSON 會一起上傳。
 function liveApiBase() {
   return "data/live-fares.json";
@@ -778,32 +792,32 @@ async function fetchLiveOffers() {
 async function syncLiveFares() {
   const button = $("#syncButton");
   if (button) { button.classList.add("is-loading"); button.disabled = true; }
-  $("#syncStatus").textContent = "正在讀取官網即時來回票價…";
+  $("#syncStatus").textContent = "正在讀取最新票價資料…";
 
   try {
     const incoming = await fetchLiveOffers();
-    if (!incoming.length) throw new Error("no live offers");
+    if (!incoming.length) throw new Error("no fare offers");
 
     state.liveCache = { offers: incoming, loadedAt: new Date().toISOString() };
     state.liveStatus = {
       mode: "live",
       updatedAt: state.liveCache.loadedAt,
-      message: `已更新 ${incoming.length} 筆官網即時來回票價（資料每晚自官網更新）`
+      message: `已載入 ${incoming.length} 筆票價資料（夜間自動更新）`
     };
     saveState();
     renderAll();
     refreshSearchFields();
     notifyTopRecommendation();
-    showToast("已更新官網即時來回票價");
+    showToast("已更新票價資料");
   } catch {
     state.liveStatus = {
       mode: "error",
       updatedAt: new Date().toISOString(),
-      message: "暫時無法連線航空公司官網，請稍後再按一次同步票價"
+      message: "暫時無法讀取票價資料，已保留上次成功結果"
     };
     saveState();
     renderAll();
-    showToast("暫時無法讀取官網票價，請稍後再試");
+    showToast("暫時無法讀取票價資料，請稍後再試");
   } finally {
     if (button) { button.classList.remove("is-loading"); button.disabled = false; }
   }
@@ -990,7 +1004,7 @@ function airportName(code) {
   return TAIWAN_AIRPORTS[code] || JAPAN_AIRPORTS[code] || { code, short: code, name: `${code} 機場` };
 }
 
-// 從「實際即時票價」建立航線索引：航空→出發地、航空→目的地、(航空,出發地)→目的地。
+// 從實際票價資料建立航線索引：航空→出發地、航空→目的地、(航空,出發地)→目的地。
 function liveRouteIndex() {
   const origins = {};   // airline -> Set(from)
   const dests = {};     // airline -> Set(to)
@@ -1137,7 +1151,7 @@ function statusText() {
   return `${status.message || "尚未同步"}${time ? ` · ${time}` : ""}`;
 }
 
-// 「目前更新票價區間 YYYY/M/D–YYYY/M/D」：取所有即時票價的最早～最晚出發日。
+// 「目前更新票價區間 YYYY/M/D–YYYY/M/D」：取所有票價資料的最早～最晚出發日。
 function fareRangeText() {
   const offers = currentOffers();
   if (!offers.length) return "";
@@ -1231,7 +1245,7 @@ function attachEvents() {
     });
   });
 
-  // 航空×出發地×目的地三層連動（一律以實際即時資料為準）
+  // 航空×出發地×目的地三層連動（一律以實際票價資料為準）
   if ($("#s-airline")) {
     $("#s-airline").addEventListener("change", refreshSearchFields);
   }
@@ -1271,7 +1285,7 @@ async function silentRefreshLiveFares() {
       state.liveStatus = {
         mode: "live",
         updatedAt: state.liveCache.loadedAt,
-        message: `已更新 ${offers.length} 筆官網即時來回票價（資料每晚自官網更新）`
+        message: `已載入 ${offers.length} 筆票價資料（夜間自動更新）`
       };
       saveState();
       renderAll();
@@ -1284,7 +1298,7 @@ async function silentRefreshLiveFares() {
   }
 }
 
-// 開頁自動載入即時起價。有快取先即刻顯示，過 30 分鐘背景更新。
+// 開頁自動載入票價。有快取先即刻顯示，過 30 分鐘背景更新。
 async function loadLiveRecommendations() {
   if (state.liveCache && state.liveCache.loadedAt) {
     const age = liveCacheAge();
@@ -1293,7 +1307,7 @@ async function loadLiveRecommendations() {
         state.liveStatus = {
           mode: "live",
           updatedAt: state.liveCache.loadedAt,
-          message: `官網即時來回票價（${state.liveCache.offers.length} 筆）。資料每晚自官網更新。`
+          message: `票價資料（${state.liveCache.offers.length} 筆），夜間自動更新。`
         };
         renderAll();
       }
@@ -1308,7 +1322,7 @@ async function loadLiveRecommendations() {
       state.liveStatus = {
         mode: "empty",
         updatedAt: new Date().toISOString(),
-        message: "目前沒有可顯示的即時票價，請用智能搜尋查詢或前往官網。"
+        message: "目前沒有可顯示的票價資料，請用智能搜尋查詢或前往官網。"
       };
       saveState();
       renderAll();
@@ -1318,7 +1332,7 @@ async function loadLiveRecommendations() {
     state.liveStatus = {
       mode: "live",
       updatedAt: state.liveCache.loadedAt,
-      message: `已更新 ${offers.length} 筆官網即時來回票價（資料每晚自官網更新）`
+      message: `已載入 ${offers.length} 筆票價資料（夜間自動更新）`
     };
     saveState();
     renderAll();
@@ -1327,7 +1341,7 @@ async function loadLiveRecommendations() {
     state.liveStatus = {
       mode: "error",
       updatedAt: new Date().toISOString(),
-      message: "暫時無法連線航空公司官網，請稍後重新整理頁面再試。"
+      message: "暫時無法讀取票價資料，請稍後重新整理頁面再試。"
     };
     renderAll();
   }

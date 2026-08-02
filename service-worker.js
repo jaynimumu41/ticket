@@ -1,4 +1,4 @@
-const CACHE_NAME = "fare-radar-v6";
+const CACHE_NAME = "fare-radar-v7";
 const APP_FILES = [
   "./",
   "./index.html",
